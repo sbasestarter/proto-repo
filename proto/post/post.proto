@@ -1,0 +1,21 @@
+syntax = "proto3";
+
+package sbs.api;
+
+option go_package = "<domain>/<namespace>/protorepo-post-go.git;postpb";
+
+import "post/status.proto";
+
+message SendTemplateRequest {
+    string protocol_type = 1;
+    string template_id = 2;
+    repeated string vars = 3;
+}
+
+message SendTemplateResponse {
+    ServerStatus status = 1;
+}
+
+service PostService {
+    rpc SendTemplate(SendTemplateRequest) returns (SendTemplateResponse) {}
+}

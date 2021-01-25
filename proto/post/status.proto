@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package sbs.api;
+
+option go_package = "<domain>/<namespace>/protorepo-post-go.git;postpb";
+
+enum PostStatus {
+  PS_UNKNOWN = 0;
+  PS_SUCCESS = 1;
+  PS_FAILED = 2;
+  PS_NOT_IMPLEMENT = 3;
+  PS_BAD_INPUT = 4;
+}
+
+message ServerStatus {
+  PostStatus status = 1;
+  string msg = 2;
+}

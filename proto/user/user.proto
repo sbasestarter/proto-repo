@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package sba.api;
+package sbs.api;
 
 option go_package = "<domain>/<namespace>/protorepo-user-go.git;userpb";
 
