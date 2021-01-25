@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package sbs.api;
+
+option go_package = "<domain>/<namespace>/protorepo-file-center-go.git;filecenterpb";
+
+enum FileCenterStatus {
+  FCS_UNKNOWN = 0;
+  FCS_SUCCESS = 1;
+  FCS_FAILED = 2;
+}
+
+message ServerStatus {
+  FileCenterStatus status = 1;
+  string msg = 2;
+}
