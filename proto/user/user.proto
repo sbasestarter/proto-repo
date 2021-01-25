@@ -1,0 +1,215 @@
+syntax = "proto3";
+
+package sba.api;
+
+option go_package = "<domain>/<namespace>/protorepo-user-go.git;userpb";
+
+import "user/status.proto";
+
+//
+// UserService
+//
+
+enum VerificationEquipment {
+    VEAuto = 0;
+    VEPhone = 1;
+    VEMail = 2;
+    VEWxMinA = 3;
+    VECustom = 100;
+}
+
+enum GoogleAuthGlobalFlag {
+    GoogleAuthNone = 0;
+    GoogleAuthFlagEnabled = 1;
+    GoogleAuthFlagEnabledForce = 2;
+}
+
+message UserId {
+    string user_name = 1;
+    string user_ve = 2;
+}
+
+message TriggerAuthRequest {
+    UserId user = 1;
+}
+
+message TriggerAuthResponse {
+    ServerStatus status = 1;
+}
+
+message RegisterRequest {
+    UserId user = 1;
+    string code_for_ve = 2;
+    string new_password = 3;
+    bool attach_sso_token = 4;
+}
+
+message LoginRequest {
+    UserId user = 1;
+    string password = 2;
+    string code_for_ve = 3;
+    string code_for_ga = 4;
+    bool attach_sso_token = 5;
+}
+
+message UserInfo {
+    string id = 1;
+    string nick_name = 2;
+    string avatar = 3;
+    bool enabled_ga = 5;
+    GoogleAuthGlobalFlag flag_ga = 6;
+}
+
+message SignResponse {
+    ServerStatus status = 1;
+    string token = 2;
+    UserInfo info = 3;
+    string sso_token = 4;
+}
+
+message SSOLoginRequest {
+    string sso_token = 1;
+}
+
+message LogoutRequest {
+    string token = 1;
+}
+
+message LogoutResponse {
+    ServerStatus status = 1;
+}
+
+message GoogleAuthGetSetupInfoRequest {
+    string token = 1;
+}
+
+message GoogleAuthGetSetupInfoResponse {
+    ServerStatus status = 1;
+    string secret_key = 2;
+}
+
+message GoogleAuthVerifyRequest {
+    string token = 1;
+    string code = 2;
+}
+
+message GoogleAuthVerifyResponse {
+    ServerStatus status = 1;
+    string token = 2;
+}
+
+message GoogleAuthSetRequest {
+    string token = 1;
+    string code = 2;
+    string token_ga_old = 3;
+}
+
+message GoogleAuthSetResponse {
+    ServerStatus status = 1;
+}
+
+message ProfileRequest {
+    string token = 1;
+    bool attach_sso_token = 2; // SSO 登录，如果有token，就会调用Profile尝试获取sso token
+}
+
+message ProfileResponse {
+    ServerStatus status = 1;
+    UserInfo info = 2;
+    string sso_token = 3;
+}
+
+
+message ResetPasswordRequest {
+    UserId user = 1;
+    string new_password = 2;
+    string code_for_ve = 3;
+    string code_for_ga = 4;
+}
+
+message ChangePasswordRequest {
+    string token = 1;
+    string csrf_token = 2;
+    string password = 3;
+    string new_password = 4;
+}
+
+message GetCsrfTokenRequest {
+    string token = 1;
+}
+
+message GetCsrfTokenResponse {
+    ServerStatus status = 1;
+    string csrf_token = 2;
+}
+
+message GetDetailInfoRequest {
+    string token = 1;
+}
+
+message UserDetailInfo {
+    UserInfo base_info = 1;
+    int64 create_at = 2;
+    UserId user = 3;
+    string phone = 4;
+    string email = 5;
+    string wechat = 6;
+}
+
+message GetDetailInfoResponse {
+    ServerStatus status = 1;
+    UserDetailInfo info = 2;
+}
+
+message UpdateDetailInfoRequest {
+    string token = 1;
+    string csrf_token = 2;
+    string avatar = 3;
+    string nick_name = 4;
+    string phone = 5;
+    string email = 6;
+    string we_chat = 7;
+}
+
+message UpdateDetailInfoResponse {
+    ServerStatus status = 1;
+}
+
+message AdminProfileRequest {
+    string token = 1;
+}
+
+message AdminUserInfo {
+    int64 id = 1;
+    string nick_name = 2;
+    string avatar = 3;
+    bool enabled_ga = 5;
+}
+
+message AdminProfileResponse {
+    ServerStatus status = 1;
+    AdminUserInfo info = 2;
+}
+
+
+service UserService {
+    rpc TriggerAuth(TriggerAuthRequest) returns (TriggerAuthResponse) {}
+    rpc Register(RegisterRequest) returns (SignResponse) {}
+    rpc Login(LoginRequest) returns (SignResponse) {}
+    rpc SSOLogin(SSOLoginRequest) returns (SignResponse) {}
+    rpc Logout(LogoutRequest) returns (LogoutResponse) {}
+    rpc GoogleAuthGetSetupInfo(GoogleAuthGetSetupInfoRequest) returns (GoogleAuthGetSetupInfoResponse) {}
+    rpc GoogleAuthVerify(GoogleAuthVerifyRequest) returns (GoogleAuthVerifyResponse) {}
+    rpc GoogleAuthSet(GoogleAuthSetRequest) returns (GoogleAuthSetResponse) {}
+    rpc Profile(ProfileRequest) returns (ProfileResponse) {}
+    rpc ResetPassword(ResetPasswordRequest) returns (SignResponse) {}
+    rpc ChangePassword(ChangePasswordRequest) returns (SignResponse) {}
+    rpc GetCsrfToken(GetCsrfTokenRequest) returns (GetCsrfTokenResponse) {}
+    rpc GetDetailInfo(GetDetailInfoRequest) returns (GetDetailInfoResponse) {}
+    rpc UpdateDetailInfo(UpdateDetailInfoRequest) returns (UpdateDetailInfoResponse) {}
+
+    //
+    // admin
+    //
+    rpc AdminProfile(AdminProfileRequest) returns (AdminProfileResponse) {}
+}

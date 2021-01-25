@@ -1,0 +1,286 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "user/user.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {},
+  "definitions": {
+    "apiAdminProfileResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/apiServerStatus"
+        },
+        "info": {
+          "$ref": "#/definitions/apiAdminUserInfo"
+        }
+      }
+    },
+    "apiAdminUserInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "nick_name": {
+          "type": "string"
+        },
+        "avatar": {
+          "type": "string"
+        },
+        "enabled_ga": {
+          "type": "boolean",
+          "format": "boolean"
+        }
+      }
+    },
+    "apiGetCsrfTokenResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/apiServerStatus"
+        },
+        "csrf_token": {
+          "type": "string"
+        }
+      }
+    },
+    "apiGetDetailInfoResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/apiServerStatus"
+        },
+        "info": {
+          "$ref": "#/definitions/apiUserDetailInfo"
+        }
+      }
+    },
+    "apiGoogleAuthGetSetupInfoResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/apiServerStatus"
+        },
+        "secret_key": {
+          "type": "string"
+        }
+      }
+    },
+    "apiGoogleAuthGlobalFlag": {
+      "type": "string",
+      "enum": [
+        "GoogleAuthNone",
+        "GoogleAuthFlagEnabled",
+        "GoogleAuthFlagEnabledForce"
+      ],
+      "default": "GoogleAuthNone"
+    },
+    "apiGoogleAuthSetResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/apiServerStatus"
+        }
+      }
+    },
+    "apiGoogleAuthVerifyResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/apiServerStatus"
+        },
+        "token": {
+          "type": "string"
+        }
+      }
+    },
+    "apiLogoutResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/apiServerStatus"
+        }
+      }
+    },
+    "apiProfileResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/apiServerStatus"
+        },
+        "info": {
+          "$ref": "#/definitions/apiUserInfo"
+        },
+        "sso_token": {
+          "type": "string"
+        }
+      }
+    },
+    "apiServerStatus": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/apiUserStatus"
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "apiSignResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/apiServerStatus"
+        },
+        "token": {
+          "type": "string"
+        },
+        "info": {
+          "$ref": "#/definitions/apiUserInfo"
+        },
+        "sso_token": {
+          "type": "string"
+        }
+      }
+    },
+    "apiTriggerAuthResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/apiServerStatus"
+        }
+      }
+    },
+    "apiUpdateDetailInfoResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/apiServerStatus"
+        }
+      }
+    },
+    "apiUserDetailInfo": {
+      "type": "object",
+      "properties": {
+        "base_info": {
+          "$ref": "#/definitions/apiUserInfo"
+        },
+        "create_at": {
+          "type": "string",
+          "format": "int64"
+        },
+        "user": {
+          "$ref": "#/definitions/apiUserId"
+        },
+        "phone": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "wechat": {
+          "type": "string"
+        }
+      }
+    },
+    "apiUserId": {
+      "type": "object",
+      "properties": {
+        "user_name": {
+          "type": "string"
+        },
+        "user_ve": {
+          "type": "string"
+        }
+      }
+    },
+    "apiUserInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "nick_name": {
+          "type": "string"
+        },
+        "avatar": {
+          "type": "string"
+        },
+        "enabled_ga": {
+          "type": "boolean",
+          "format": "boolean"
+        },
+        "flag_ga": {
+          "$ref": "#/definitions/apiGoogleAuthGlobalFlag"
+        }
+      }
+    },
+    "apiUserStatus": {
+      "type": "string",
+      "enum": [
+        "US_UNKNOWN",
+        "US_SUCCESS",
+        "US_FAILED",
+        "US_NOT_IMPLEMENT",
+        "US_BAD_INPUT",
+        "US_NEED_2FA_SETUP",
+        "US_NEED_2FA_AUTH",
+        "US_NEED_VE_AUTH",
+        "US_NEED_PASSWORD_AUTH",
+        "US_NEED_VE_OR_PASSWORD_AUTH",
+        "US_DONT_SUPPORT",
+        "US_VERIFY_TOO_QUICK",
+        "US_INTERNAL_ERROR",
+        "US_WRONG_CODE",
+        "US_WRONG_PASSWORD",
+        "US_USER_ALREADY_EXISTS",
+        "US_USER_NOT_EXISTS",
+        "US_UNAUTHENTICATED"
+      ],
+      "default": "US_UNKNOWN"
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "type_url": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}

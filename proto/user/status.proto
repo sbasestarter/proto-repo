@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package sba.api;
+
+option go_package = "<domain>/<namespace>/protorepo-user-go.git;userpb";
+
+enum UserStatus {
+  US_UNKNOWN = 0;
+  US_SUCCESS = 1;
+  US_FAILED = 2;
+  US_NOT_IMPLEMENT = 3;
+  US_BAD_INPUT = 4;
+  US_NEED_2FA_SETUP = 10;
+  US_NEED_2FA_AUTH = 11;
+  US_NEED_VE_AUTH = 12;
+  US_NEED_PASSWORD_AUTH = 13;
+  US_NEED_VE_OR_PASSWORD_AUTH = 14;
+  US_DONT_SUPPORT = 20;
+  US_VERIFY_TOO_QUICK = 21;
+  US_INTERNAL_ERROR = 22;
+  US_WRONG_CODE = 23;
+  US_WRONG_PASSWORD = 24;
+  US_USER_ALREADY_EXISTS = 25;
+  US_USER_NOT_EXISTS = 26;
+  US_UNAUTHENTICATED = 27;
+}
+
+message ServerStatus {
+  UserStatus status = 1;
+  string msg = 2;
+}
