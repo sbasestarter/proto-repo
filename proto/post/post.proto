@@ -8,8 +8,9 @@ import "post/status.proto";
 
 message SendTemplateRequest {
     string protocol_type = 1;
-    string template_id = 2;
-    repeated string vars = 3;
+    repeated string to = 2;
+    string template_id = 3;
+    repeated string vars = 4;
 }
 
 message SendTemplateResponse {
