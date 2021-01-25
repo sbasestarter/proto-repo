@@ -348,7 +348,7 @@ type UserInfo struct {
 	NickName             string               `protobuf:"bytes,2,opt,name=nick_name,json=nickName,proto3" json:"nick_name,omitempty"`
 	Avatar               string               `protobuf:"bytes,3,opt,name=avatar,proto3" json:"avatar,omitempty"`
 	EnabledGa            bool                 `protobuf:"varint,5,opt,name=enabled_ga,json=enabledGa,proto3" json:"enabled_ga,omitempty"`
-	FlagGa               GoogleAuthGlobalFlag `protobuf:"varint,6,opt,name=flag_ga,json=flagGa,proto3,enum=sba.api.GoogleAuthGlobalFlag" json:"flag_ga,omitempty"`
+	FlagGa               GoogleAuthGlobalFlag `protobuf:"varint,6,opt,name=flag_ga,json=flagGa,proto3,enum=sbs.api.GoogleAuthGlobalFlag" json:"flag_ga,omitempty"`
 	XXX_NoUnkeyedLiteral struct{}             `json:"-"`
 	XXX_unrecognized     []byte               `json:"-"`
 	XXX_sizecache        int32                `json:"-"`
@@ -1623,38 +1623,38 @@ func (m *AdminProfileResponse) GetInfo() *AdminUserInfo {
 }
 
 func init() {
-	proto.RegisterEnum("sba.api.VerificationEquipment", VerificationEquipment_name, VerificationEquipment_value)
-	proto.RegisterEnum("sba.api.GoogleAuthGlobalFlag", GoogleAuthGlobalFlag_name, GoogleAuthGlobalFlag_value)
-	proto.RegisterType((*UserId)(nil), "sba.api.UserId")
-	proto.RegisterType((*TriggerAuthRequest)(nil), "sba.api.TriggerAuthRequest")
-	proto.RegisterType((*TriggerAuthResponse)(nil), "sba.api.TriggerAuthResponse")
-	proto.RegisterType((*RegisterRequest)(nil), "sba.api.RegisterRequest")
-	proto.RegisterType((*LoginRequest)(nil), "sba.api.LoginRequest")
-	proto.RegisterType((*UserInfo)(nil), "sba.api.UserInfo")
-	proto.RegisterType((*SignResponse)(nil), "sba.api.SignResponse")
-	proto.RegisterType((*SSOLoginRequest)(nil), "sba.api.SSOLoginRequest")
-	proto.RegisterType((*LogoutRequest)(nil), "sba.api.LogoutRequest")
-	proto.RegisterType((*LogoutResponse)(nil), "sba.api.LogoutResponse")
-	proto.RegisterType((*GoogleAuthGetSetupInfoRequest)(nil), "sba.api.GoogleAuthGetSetupInfoRequest")
-	proto.RegisterType((*GoogleAuthGetSetupInfoResponse)(nil), "sba.api.GoogleAuthGetSetupInfoResponse")
-	proto.RegisterType((*GoogleAuthVerifyRequest)(nil), "sba.api.GoogleAuthVerifyRequest")
-	proto.RegisterType((*GoogleAuthVerifyResponse)(nil), "sba.api.GoogleAuthVerifyResponse")
-	proto.RegisterType((*GoogleAuthSetRequest)(nil), "sba.api.GoogleAuthSetRequest")
-	proto.RegisterType((*GoogleAuthSetResponse)(nil), "sba.api.GoogleAuthSetResponse")
-	proto.RegisterType((*ProfileRequest)(nil), "sba.api.ProfileRequest")
-	proto.RegisterType((*ProfileResponse)(nil), "sba.api.ProfileResponse")
-	proto.RegisterType((*ResetPasswordRequest)(nil), "sba.api.ResetPasswordRequest")
-	proto.RegisterType((*ChangePasswordRequest)(nil), "sba.api.ChangePasswordRequest")
-	proto.RegisterType((*GetCsrfTokenRequest)(nil), "sba.api.GetCsrfTokenRequest")
-	proto.RegisterType((*GetCsrfTokenResponse)(nil), "sba.api.GetCsrfTokenResponse")
-	proto.RegisterType((*GetDetailInfoRequest)(nil), "sba.api.GetDetailInfoRequest")
-	proto.RegisterType((*UserDetailInfo)(nil), "sba.api.UserDetailInfo")
-	proto.RegisterType((*GetDetailInfoResponse)(nil), "sba.api.GetDetailInfoResponse")
-	proto.RegisterType((*UpdateDetailInfoRequest)(nil), "sba.api.UpdateDetailInfoRequest")
-	proto.RegisterType((*UpdateDetailInfoResponse)(nil), "sba.api.UpdateDetailInfoResponse")
-	proto.RegisterType((*AdminProfileRequest)(nil), "sba.api.AdminProfileRequest")
-	proto.RegisterType((*AdminUserInfo)(nil), "sba.api.AdminUserInfo")
-	proto.RegisterType((*AdminProfileResponse)(nil), "sba.api.AdminProfileResponse")
+	proto.RegisterEnum("sbs.api.VerificationEquipment", VerificationEquipment_name, VerificationEquipment_value)
+	proto.RegisterEnum("sbs.api.GoogleAuthGlobalFlag", GoogleAuthGlobalFlag_name, GoogleAuthGlobalFlag_value)
+	proto.RegisterType((*UserId)(nil), "sbs.api.UserId")
+	proto.RegisterType((*TriggerAuthRequest)(nil), "sbs.api.TriggerAuthRequest")
+	proto.RegisterType((*TriggerAuthResponse)(nil), "sbs.api.TriggerAuthResponse")
+	proto.RegisterType((*RegisterRequest)(nil), "sbs.api.RegisterRequest")
+	proto.RegisterType((*LoginRequest)(nil), "sbs.api.LoginRequest")
+	proto.RegisterType((*UserInfo)(nil), "sbs.api.UserInfo")
+	proto.RegisterType((*SignResponse)(nil), "sbs.api.SignResponse")
+	proto.RegisterType((*SSOLoginRequest)(nil), "sbs.api.SSOLoginRequest")
+	proto.RegisterType((*LogoutRequest)(nil), "sbs.api.LogoutRequest")
+	proto.RegisterType((*LogoutResponse)(nil), "sbs.api.LogoutResponse")
+	proto.RegisterType((*GoogleAuthGetSetupInfoRequest)(nil), "sbs.api.GoogleAuthGetSetupInfoRequest")
+	proto.RegisterType((*GoogleAuthGetSetupInfoResponse)(nil), "sbs.api.GoogleAuthGetSetupInfoResponse")
+	proto.RegisterType((*GoogleAuthVerifyRequest)(nil), "sbs.api.GoogleAuthVerifyRequest")
+	proto.RegisterType((*GoogleAuthVerifyResponse)(nil), "sbs.api.GoogleAuthVerifyResponse")
+	proto.RegisterType((*GoogleAuthSetRequest)(nil), "sbs.api.GoogleAuthSetRequest")
+	proto.RegisterType((*GoogleAuthSetResponse)(nil), "sbs.api.GoogleAuthSetResponse")
+	proto.RegisterType((*ProfileRequest)(nil), "sbs.api.ProfileRequest")
+	proto.RegisterType((*ProfileResponse)(nil), "sbs.api.ProfileResponse")
+	proto.RegisterType((*ResetPasswordRequest)(nil), "sbs.api.ResetPasswordRequest")
+	proto.RegisterType((*ChangePasswordRequest)(nil), "sbs.api.ChangePasswordRequest")
+	proto.RegisterType((*GetCsrfTokenRequest)(nil), "sbs.api.GetCsrfTokenRequest")
+	proto.RegisterType((*GetCsrfTokenResponse)(nil), "sbs.api.GetCsrfTokenResponse")
+	proto.RegisterType((*GetDetailInfoRequest)(nil), "sbs.api.GetDetailInfoRequest")
+	proto.RegisterType((*UserDetailInfo)(nil), "sbs.api.UserDetailInfo")
+	proto.RegisterType((*GetDetailInfoResponse)(nil), "sbs.api.GetDetailInfoResponse")
+	proto.RegisterType((*UpdateDetailInfoRequest)(nil), "sbs.api.UpdateDetailInfoRequest")
+	proto.RegisterType((*UpdateDetailInfoResponse)(nil), "sbs.api.UpdateDetailInfoResponse")
+	proto.RegisterType((*AdminProfileRequest)(nil), "sbs.api.AdminProfileRequest")
+	proto.RegisterType((*AdminUserInfo)(nil), "sbs.api.AdminUserInfo")
+	proto.RegisterType((*AdminProfileResponse)(nil), "sbs.api.AdminProfileResponse")
 }
 
 func init() { proto.RegisterFile("user/user.proto", fileDescriptor_ed89022014131a74) }
@@ -1667,7 +1667,7 @@ var fileDescriptor_ed89022014131a74 = []byte{
 	0xf3, 0x22, 0xa1, 0xd3, 0xda, 0x1e, 0x9f, 0x4f, 0xb1, 0x6f, 0xdd, 0xdb, 0x75, 0x43, 0xbf, 0x23,
 	0xbe, 0xf0, 0x03, 0xf8, 0xc6, 0x17, 0x24, 0xfe, 0x03, 0x7f, 0x00, 0xf1, 0xb3, 0xd0, 0xee, 0x9d,
 	0xef, 0xcd, 0x67, 0xb7, 0x31, 0xf0, 0x25, 0xf2, 0xce, 0xcc, 0xee, 0x3c, 0x33, 0x3b, 0x3b, 0xf3,
-	0x5c, 0x60, 0x7d, 0xcc, 0xd1, 0x3d, 0x94, 0x7f, 0xea, 0x23, 0x97, 0x09, 0x46, 0xf2, 0xbc, 0x4d,
+	0x5c, 0x60, 0x7d, 0xcc, 0xd1, 0x3d, 0x94, 0x7f, 0xea, 0x23, 0x97, 0x09, 0x46, 0xf2, 0xbc, 0xcd,
 	0xeb, 0x74, 0x64, 0xd7, 0x6e, 0x28, 0x0d, 0x17, 0x54, 0x8c, 0xb9, 0xa7, 0xd3, 0x1f, 0x42, 0xee,
 	0x05, 0x47, 0xf7, 0xbc, 0x4b, 0x6e, 0x41, 0x51, 0xaa, 0x4d, 0x87, 0x0e, 0xb1, 0xaa, 0xed, 0x69,
 	0xfb, 0x45, 0xa3, 0x20, 0x05, 0x4f, 0xe9, 0x10, 0xc9, 0x36, 0xe4, 0x95, 0xf2, 0x15, 0x56, 0x33,
@@ -1744,7 +1744,7 @@ var fileDescriptor_ed89022014131a74 = []byte{
 	0xe7, 0x87, 0x87, 0x96, 0x2d, 0xfa, 0xe3, 0x76, 0xbd, 0xc3, 0x86, 0x87, 0x5c, 0xf2, 0x11, 0x2e,
 	0xa8, 0x2b, 0xd0, 0x3d, 0x54, 0xff, 0x9b, 0x39, 0x70, 0x71, 0xc4, 0x0e, 0x2d, 0x74, 0xbc, 0xa5,
 	0x5c, 0x1d, 0x48, 0xba, 0x71, 0x60, 0xb1, 0x69, 0x49, 0xdd, 0xb2, 0xc5, 0x7d, 0xf9, 0x7b, 0xd4,
-	0x6e, 0xe7, 0x94, 0xf6, 0xa3, 0x7f, 0x02, 0x00, 0x00, 0xff, 0xff, 0x25, 0x0a, 0x8f, 0x0b, 0x09,
+	0x6e, 0xe7, 0x94, 0xf6, 0xa3, 0x7f, 0x02, 0x00, 0x00, 0xff, 0xff, 0x6c, 0xb9, 0xaf, 0x9d, 0x09,
 	0x12, 0x00, 0x00,
 }
 
@@ -1790,7 +1790,7 @@ func NewUserServiceClient(cc *grpc.ClientConn) UserServiceClient {
 
 func (c *userServiceClient) TriggerAuth(ctx context.Context, in *TriggerAuthRequest, opts ...grpc.CallOption) (*TriggerAuthResponse, error) {
 	out := new(TriggerAuthResponse)
-	err := c.cc.Invoke(ctx, "/sba.api.UserService/TriggerAuth", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/sbs.api.UserService/TriggerAuth", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1799,7 +1799,7 @@ func (c *userServiceClient) TriggerAuth(ctx context.Context, in *TriggerAuthRequ
 
 func (c *userServiceClient) Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*SignResponse, error) {
 	out := new(SignResponse)
-	err := c.cc.Invoke(ctx, "/sba.api.UserService/Register", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/sbs.api.UserService/Register", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1808,7 +1808,7 @@ func (c *userServiceClient) Register(ctx context.Context, in *RegisterRequest, o
 
 func (c *userServiceClient) Login(ctx context.Context, in *LoginRequest, opts ...grpc.CallOption) (*SignResponse, error) {
 	out := new(SignResponse)
-	err := c.cc.Invoke(ctx, "/sba.api.UserService/Login", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/sbs.api.UserService/Login", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1817,7 +1817,7 @@ func (c *userServiceClient) Login(ctx context.Context, in *LoginRequest, opts ..
 
 func (c *userServiceClient) SSOLogin(ctx context.Context, in *SSOLoginRequest, opts ...grpc.CallOption) (*SignResponse, error) {
 	out := new(SignResponse)
-	err := c.cc.Invoke(ctx, "/sba.api.UserService/SSOLogin", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/sbs.api.UserService/SSOLogin", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1826,7 +1826,7 @@ func (c *userServiceClient) SSOLogin(ctx context.Context, in *SSOLoginRequest, o
 
 func (c *userServiceClient) Logout(ctx context.Context, in *LogoutRequest, opts ...grpc.CallOption) (*LogoutResponse, error) {
 	out := new(LogoutResponse)
-	err := c.cc.Invoke(ctx, "/sba.api.UserService/Logout", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/sbs.api.UserService/Logout", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1835,7 +1835,7 @@ func (c *userServiceClient) Logout(ctx context.Context, in *LogoutRequest, opts 
 
 func (c *userServiceClient) GoogleAuthGetSetupInfo(ctx context.Context, in *GoogleAuthGetSetupInfoRequest, opts ...grpc.CallOption) (*GoogleAuthGetSetupInfoResponse, error) {
 	out := new(GoogleAuthGetSetupInfoResponse)
-	err := c.cc.Invoke(ctx, "/sba.api.UserService/GoogleAuthGetSetupInfo", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/sbs.api.UserService/GoogleAuthGetSetupInfo", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1844,7 +1844,7 @@ func (c *userServiceClient) GoogleAuthGetSetupInfo(ctx context.Context, in *Goog
 
 func (c *userServiceClient) GoogleAuthVerify(ctx context.Context, in *GoogleAuthVerifyRequest, opts ...grpc.CallOption) (*GoogleAuthVerifyResponse, error) {
 	out := new(GoogleAuthVerifyResponse)
-	err := c.cc.Invoke(ctx, "/sba.api.UserService/GoogleAuthVerify", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/sbs.api.UserService/GoogleAuthVerify", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1853,7 +1853,7 @@ func (c *userServiceClient) GoogleAuthVerify(ctx context.Context, in *GoogleAuth
 
 func (c *userServiceClient) GoogleAuthSet(ctx context.Context, in *GoogleAuthSetRequest, opts ...grpc.CallOption) (*GoogleAuthSetResponse, error) {
 	out := new(GoogleAuthSetResponse)
-	err := c.cc.Invoke(ctx, "/sba.api.UserService/GoogleAuthSet", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/sbs.api.UserService/GoogleAuthSet", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1862,7 +1862,7 @@ func (c *userServiceClient) GoogleAuthSet(ctx context.Context, in *GoogleAuthSet
 
 func (c *userServiceClient) Profile(ctx context.Context, in *ProfileRequest, opts ...grpc.CallOption) (*ProfileResponse, error) {
 	out := new(ProfileResponse)
-	err := c.cc.Invoke(ctx, "/sba.api.UserService/Profile", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/sbs.api.UserService/Profile", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1871,7 +1871,7 @@ func (c *userServiceClient) Profile(ctx context.Context, in *ProfileRequest, opt
 
 func (c *userServiceClient) ResetPassword(ctx context.Context, in *ResetPasswordRequest, opts ...grpc.CallOption) (*SignResponse, error) {
 	out := new(SignResponse)
-	err := c.cc.Invoke(ctx, "/sba.api.UserService/ResetPassword", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/sbs.api.UserService/ResetPassword", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1880,7 +1880,7 @@ func (c *userServiceClient) ResetPassword(ctx context.Context, in *ResetPassword
 
 func (c *userServiceClient) ChangePassword(ctx context.Context, in *ChangePasswordRequest, opts ...grpc.CallOption) (*SignResponse, error) {
 	out := new(SignResponse)
-	err := c.cc.Invoke(ctx, "/sba.api.UserService/ChangePassword", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/sbs.api.UserService/ChangePassword", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1889,7 +1889,7 @@ func (c *userServiceClient) ChangePassword(ctx context.Context, in *ChangePasswo
 
 func (c *userServiceClient) GetCsrfToken(ctx context.Context, in *GetCsrfTokenRequest, opts ...grpc.CallOption) (*GetCsrfTokenResponse, error) {
 	out := new(GetCsrfTokenResponse)
-	err := c.cc.Invoke(ctx, "/sba.api.UserService/GetCsrfToken", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/sbs.api.UserService/GetCsrfToken", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1898,7 +1898,7 @@ func (c *userServiceClient) GetCsrfToken(ctx context.Context, in *GetCsrfTokenRe
 
 func (c *userServiceClient) GetDetailInfo(ctx context.Context, in *GetDetailInfoRequest, opts ...grpc.CallOption) (*GetDetailInfoResponse, error) {
 	out := new(GetDetailInfoResponse)
-	err := c.cc.Invoke(ctx, "/sba.api.UserService/GetDetailInfo", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/sbs.api.UserService/GetDetailInfo", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1907,7 +1907,7 @@ func (c *userServiceClient) GetDetailInfo(ctx context.Context, in *GetDetailInfo
 
 func (c *userServiceClient) UpdateDetailInfo(ctx context.Context, in *UpdateDetailInfoRequest, opts ...grpc.CallOption) (*UpdateDetailInfoResponse, error) {
 	out := new(UpdateDetailInfoResponse)
-	err := c.cc.Invoke(ctx, "/sba.api.UserService/UpdateDetailInfo", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/sbs.api.UserService/UpdateDetailInfo", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1916,7 +1916,7 @@ func (c *userServiceClient) UpdateDetailInfo(ctx context.Context, in *UpdateDeta
 
 func (c *userServiceClient) AdminProfile(ctx context.Context, in *AdminProfileRequest, opts ...grpc.CallOption) (*AdminProfileResponse, error) {
 	out := new(AdminProfileResponse)
-	err := c.cc.Invoke(ctx, "/sba.api.UserService/AdminProfile", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/sbs.api.UserService/AdminProfile", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -1959,7 +1959,7 @@ func _UserService_TriggerAuth_Handler(srv interface{}, ctx context.Context, dec 
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/sba.api.UserService/TriggerAuth",
+		FullMethod: "/sbs.api.UserService/TriggerAuth",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).TriggerAuth(ctx, req.(*TriggerAuthRequest))
@@ -1977,7 +1977,7 @@ func _UserService_Register_Handler(srv interface{}, ctx context.Context, dec fun
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/sba.api.UserService/Register",
+		FullMethod: "/sbs.api.UserService/Register",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).Register(ctx, req.(*RegisterRequest))
@@ -1995,7 +1995,7 @@ func _UserService_Login_Handler(srv interface{}, ctx context.Context, dec func(i
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/sba.api.UserService/Login",
+		FullMethod: "/sbs.api.UserService/Login",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).Login(ctx, req.(*LoginRequest))
@@ -2013,7 +2013,7 @@ func _UserService_SSOLogin_Handler(srv interface{}, ctx context.Context, dec fun
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/sba.api.UserService/SSOLogin",
+		FullMethod: "/sbs.api.UserService/SSOLogin",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).SSOLogin(ctx, req.(*SSOLoginRequest))
@@ -2031,7 +2031,7 @@ func _UserService_Logout_Handler(srv interface{}, ctx context.Context, dec func(
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/sba.api.UserService/Logout",
+		FullMethod: "/sbs.api.UserService/Logout",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).Logout(ctx, req.(*LogoutRequest))
@@ -2049,7 +2049,7 @@ func _UserService_GoogleAuthGetSetupInfo_Handler(srv interface{}, ctx context.Co
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/sba.api.UserService/GoogleAuthGetSetupInfo",
+		FullMethod: "/sbs.api.UserService/GoogleAuthGetSetupInfo",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).GoogleAuthGetSetupInfo(ctx, req.(*GoogleAuthGetSetupInfoRequest))
@@ -2067,7 +2067,7 @@ func _UserService_GoogleAuthVerify_Handler(srv interface{}, ctx context.Context,
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/sba.api.UserService/GoogleAuthVerify",
+		FullMethod: "/sbs.api.UserService/GoogleAuthVerify",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).GoogleAuthVerify(ctx, req.(*GoogleAuthVerifyRequest))
@@ -2085,7 +2085,7 @@ func _UserService_GoogleAuthSet_Handler(srv interface{}, ctx context.Context, de
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/sba.api.UserService/GoogleAuthSet",
+		FullMethod: "/sbs.api.UserService/GoogleAuthSet",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).GoogleAuthSet(ctx, req.(*GoogleAuthSetRequest))
@@ -2103,7 +2103,7 @@ func _UserService_Profile_Handler(srv interface{}, ctx context.Context, dec func
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/sba.api.UserService/Profile",
+		FullMethod: "/sbs.api.UserService/Profile",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).Profile(ctx, req.(*ProfileRequest))
@@ -2121,7 +2121,7 @@ func _UserService_ResetPassword_Handler(srv interface{}, ctx context.Context, de
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/sba.api.UserService/ResetPassword",
+		FullMethod: "/sbs.api.UserService/ResetPassword",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).ResetPassword(ctx, req.(*ResetPasswordRequest))
@@ -2139,7 +2139,7 @@ func _UserService_ChangePassword_Handler(srv interface{}, ctx context.Context, d
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/sba.api.UserService/ChangePassword",
+		FullMethod: "/sbs.api.UserService/ChangePassword",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).ChangePassword(ctx, req.(*ChangePasswordRequest))
@@ -2157,7 +2157,7 @@ func _UserService_GetCsrfToken_Handler(srv interface{}, ctx context.Context, dec
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/sba.api.UserService/GetCsrfToken",
+		FullMethod: "/sbs.api.UserService/GetCsrfToken",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).GetCsrfToken(ctx, req.(*GetCsrfTokenRequest))
@@ -2175,7 +2175,7 @@ func _UserService_GetDetailInfo_Handler(srv interface{}, ctx context.Context, de
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/sba.api.UserService/GetDetailInfo",
+		FullMethod: "/sbs.api.UserService/GetDetailInfo",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).GetDetailInfo(ctx, req.(*GetDetailInfoRequest))
@@ -2193,7 +2193,7 @@ func _UserService_UpdateDetailInfo_Handler(srv interface{}, ctx context.Context,
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/sba.api.UserService/UpdateDetailInfo",
+		FullMethod: "/sbs.api.UserService/UpdateDetailInfo",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).UpdateDetailInfo(ctx, req.(*UpdateDetailInfoRequest))
@@ -2211,7 +2211,7 @@ func _UserService_AdminProfile_Handler(srv interface{}, ctx context.Context, dec
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/sba.api.UserService/AdminProfile",
+		FullMethod: "/sbs.api.UserService/AdminProfile",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServiceServer).AdminProfile(ctx, req.(*AdminProfileRequest))
@@ -2220,7 +2220,7 @@ func _UserService_AdminProfile_Handler(srv interface{}, ctx context.Context, dec
 }
 
 var _UserService_serviceDesc = grpc.ServiceDesc{
-	ServiceName: "sba.api.UserService",
+	ServiceName: "sbs.api.UserService",
 	HandlerType: (*UserServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
