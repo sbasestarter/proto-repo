@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package sbs.api;
+package filecenter.api;
 
 option go_package = "<domain>/<namespace>/protorepo-file-center-go.git;filecenterpb";
 
