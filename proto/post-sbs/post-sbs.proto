@@ -7,16 +7,16 @@ option go_package = "<domain>/<namespace>/protorepo-post-sbs-go.git;postsbspb";
 import "post-sbs/status.proto";
 
 enum PostProtocolType {
-    P_PROTOCOL_T_NONE = 0;
-    P_PROTOCOL_T_MAIL = 1;
-    P_PROTOCOL_T_SMS = 2;
+    PostProtocolNone = 0;
+    PostProtocolMail = 1;
+    PostProtocolSMS = 2;
 }
 
 enum PostPurposeType {
-    P_PURPOSE_T_NONE = 0;
-    P_PURPOSE_T_REGISTER = 1;
-    P_PURPOSE_T_LOGIN = 2;
-    P_PURPOSE_T_RESET_PASSWORD = 3;
+    PostPurposeNone = 0;
+    PostPurposeRegister = 1;
+    PostPurposeLogin = 2;
+    PostPurposeResetPassword = 3;
 }
 
 message PostCodeRequest {
