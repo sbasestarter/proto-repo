@@ -23,21 +23,21 @@
     "apiPostProtocolType": {
       "type": "string",
       "enum": [
-        "P_PROTOCOL_T_NONE",
-        "P_PROTOCOL_T_MAIL",
-        "P_PROTOCOL_T_SMS"
+        "PostProtocolNone",
+        "PostProtocolMail",
+        "PostProtocolSMS"
       ],
-      "default": "P_PROTOCOL_T_NONE"
+      "default": "PostProtocolNone"
     },
     "apiPostPurposeType": {
       "type": "string",
       "enum": [
-        "P_PURPOSE_T_NONE",
-        "P_PURPOSE_T_REGISTER",
-        "P_PURPOSE_T_LOGIN",
-        "P_PURPOSE_T_RESET_PASSWORD"
+        "PostPurposeNone",
+        "PostPurposeRegister",
+        "PostPurposeLogin",
+        "PostPurposeResetPassword"
       ],
-      "default": "P_PURPOSE_T_NONE"
+      "default": "PostPurposeNone"
     },
     "apiPostSBSStatus": {
       "type": "string",
