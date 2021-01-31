@@ -23,7 +23,7 @@ message PostCodeRequest {
     PostProtocolType protocol_type = 1;
     PostPurposeType purpose_type = 2;
     string code = 3;
-    int32 expired_timestamp = 4;
+    int64 expired_timestamp = 4;
 }
 
 message PostCodeResponse {
