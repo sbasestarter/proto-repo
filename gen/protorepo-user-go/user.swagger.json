@@ -153,6 +153,16 @@
         }
       }
     },
+    "apiTriggerAuthPurpose": {
+      "type": "string",
+      "enum": [
+        "TriggerAuthPurposeNone",
+        "TriggerAuthPurposeRegister",
+        "TriggerAuthPurposeLogin",
+        "TriggerAuthPurposeResetPassword"
+      ],
+      "default": "TriggerAuthPurposeNone"
+    },
     "apiTriggerAuthResponse": {
       "type": "object",
       "properties": {

@@ -38,6 +38,7 @@ goog.exportSymbol('proto.user.api.RegisterRequest', null, global);
 goog.exportSymbol('proto.user.api.ResetPasswordRequest', null, global);
 goog.exportSymbol('proto.user.api.SSOLoginRequest', null, global);
 goog.exportSymbol('proto.user.api.SignResponse', null, global);
+goog.exportSymbol('proto.user.api.TriggerAuthPurpose', null, global);
 goog.exportSymbol('proto.user.api.TriggerAuthRequest', null, global);
 goog.exportSymbol('proto.user.api.TriggerAuthResponse', null, global);
 goog.exportSymbol('proto.user.api.UpdateDetailInfoRequest', null, global);
@@ -868,7 +869,8 @@ proto.user.api.TriggerAuthRequest.prototype.toObject = function(opt_includeInsta
  */
 proto.user.api.TriggerAuthRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    user: (f = msg.getUser()) && proto.user.api.UserId.toObject(includeInstance, f)
+    user: (f = msg.getUser()) && proto.user.api.UserId.toObject(includeInstance, f),
+    purpose: jspb.Message.getFieldWithDefault(msg, 2, 0)
   };
 
   if (includeInstance) {
@@ -910,6 +912,10 @@ proto.user.api.TriggerAuthRequest.deserializeBinaryFromReader = function(msg, re
       reader.readMessage(value,proto.user.api.UserId.deserializeBinaryFromReader);
       msg.setUser(value);
       break;
+    case 2:
+      var value = /** @type {!proto.user.api.TriggerAuthPurpose} */ (reader.readEnum());
+      msg.setPurpose(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -945,6 +951,13 @@ proto.user.api.TriggerAuthRequest.serializeBinaryToWriter = function(message, wr
       1,
       f,
       proto.user.api.UserId.serializeBinaryToWriter
+    );
+  }
+  f = message.getPurpose();
+  if (f !== 0.0) {
+    writer.writeEnum(
+      2,
+      f
     );
   }
 };
@@ -984,6 +997,24 @@ proto.user.api.TriggerAuthRequest.prototype.clearUser = function() {
  */
 proto.user.api.TriggerAuthRequest.prototype.hasUser = function() {
   return jspb.Message.getField(this, 1) != null;
+};
+
+
+/**
+ * optional TriggerAuthPurpose purpose = 2;
+ * @return {!proto.user.api.TriggerAuthPurpose}
+ */
+proto.user.api.TriggerAuthRequest.prototype.getPurpose = function() {
+  return /** @type {!proto.user.api.TriggerAuthPurpose} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/**
+ * @param {!proto.user.api.TriggerAuthPurpose} value
+ * @return {!proto.user.api.TriggerAuthRequest} returns this
+ */
+proto.user.api.TriggerAuthRequest.prototype.setPurpose = function(value) {
+  return jspb.Message.setProto3EnumField(this, 2, value);
 };
 
 
@@ -6415,6 +6446,16 @@ proto.user.api.GoogleAuthGlobalFlag = {
   GOOGLEAUTHNONE: 0,
   GOOGLEAUTHFLAGENABLED: 1,
   GOOGLEAUTHFLAGENABLEDFORCE: 2
+};
+
+/**
+ * @enum {number}
+ */
+proto.user.api.TriggerAuthPurpose = {
+  TRIGGERAUTHPURPOSENONE: 0,
+  TRIGGERAUTHPURPOSEREGISTER: 1,
+  TRIGGERAUTHPURPOSELOGIN: 2,
+  TRIGGERAUTHPURPOSERESETPASSWORD: 3
 };
 
 goog.object.extend(exports, proto.user.api);
