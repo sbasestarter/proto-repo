@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package postsbs.api;
 
-option go_package = "<domain>/<namespace>/protorepo-post-sbs-go.git;postpb";
+option go_package = "<domain>/<namespace>/protorepo-post-sbs-go.git;postsbspb";
 
 enum PostSBSStatus {
   PS_SBS_UNKNOWN = 0;
