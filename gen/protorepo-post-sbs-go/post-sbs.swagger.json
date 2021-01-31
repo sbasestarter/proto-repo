@@ -1,0 +1,98 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "post-sbs/post-sbs.proto",
+    "version": "version not set"
+  },
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {},
+  "definitions": {
+    "apiPostCodeResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/apiServerStatus"
+        }
+      }
+    },
+    "apiPostProtocolType": {
+      "type": "string",
+      "enum": [
+        "P_PROTOCOL_T_NONE",
+        "P_PROTOCOL_T_MAIL",
+        "P_PROTOCOL_T_SMS"
+      ],
+      "default": "P_PROTOCOL_T_NONE"
+    },
+    "apiPostPurposeType": {
+      "type": "string",
+      "enum": [
+        "P_PURPOSE_T_NONE",
+        "P_PURPOSE_T_REGISTER",
+        "P_PURPOSE_T_LOGIN",
+        "P_PURPOSE_T_RESET_PASSWORD"
+      ],
+      "default": "P_PURPOSE_T_NONE"
+    },
+    "apiPostSBSStatus": {
+      "type": "string",
+      "enum": [
+        "PS_SBS_UNKNOWN",
+        "PS_SBS_SUCCESS",
+        "PS_SBS__FAILED",
+        "PS_SBS_NOT_IMPLEMENT",
+        "PS_SBS_BAD_INPUT"
+      ],
+      "default": "PS_SBS_UNKNOWN"
+    },
+    "apiServerStatus": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/apiPostSBSStatus"
+        },
+        "msg": {
+          "type": "string"
+        }
+      }
+    },
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "type_url": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
+    "runtimeError": {
+      "type": "object",
+      "properties": {
+        "error": {
+          "type": "string"
+        },
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    }
+  }
+}
