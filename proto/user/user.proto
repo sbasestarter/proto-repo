@@ -24,6 +24,13 @@ enum GoogleAuthGlobalFlag {
     GoogleAuthFlagEnabledForce = 2;
 }
 
+enum TriggerAuthPurpose {
+    TriggerAuthPurposeNone = 0;
+    TriggerAuthPurposeRegister = 1;
+    TriggerAuthPurposeLogin = 2;
+    TriggerAuthPurposeResetPassword = 3;
+}
+
 message UserId {
     string user_name = 1;
     string user_ve = 2;
@@ -31,6 +38,7 @@ message UserId {
 
 message TriggerAuthRequest {
     UserId user = 1;
+    TriggerAuthPurpose purpose = 2;
 }
 
 message TriggerAuthResponse {
