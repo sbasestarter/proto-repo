@@ -284,6 +284,9 @@
     "apiUserListItem": {
       "type": "object",
       "properties": {
+        "user": {
+          "$ref": "#/definitions/apiUserId"
+        },
         "info": {
           "$ref": "#/definitions/apiUserInfo"
         },

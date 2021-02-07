@@ -6292,10 +6292,11 @@ proto.user.api.UserListItem.prototype.toObject = function(opt_includeInstance) {
  */
 proto.user.api.UserListItem.toObject = function(includeInstance, msg) {
   var f, obj = {
+    user: (f = msg.getUser()) && proto.user.api.UserId.toObject(includeInstance, f),
     info: (f = msg.getInfo()) && proto.user.api.UserInfo.toObject(includeInstance, f),
-    createAt: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    lastLoginAt: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    privileges: jspb.Message.getFieldWithDefault(msg, 4, 0)
+    createAt: jspb.Message.getFieldWithDefault(msg, 3, ""),
+    lastLoginAt: jspb.Message.getFieldWithDefault(msg, 4, ""),
+    privileges: jspb.Message.getFieldWithDefault(msg, 5, 0)
   };
 
   if (includeInstance) {
@@ -6333,19 +6334,24 @@ proto.user.api.UserListItem.deserializeBinaryFromReader = function(msg, reader) 
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
+      var value = new proto.user.api.UserId;
+      reader.readMessage(value,proto.user.api.UserId.deserializeBinaryFromReader);
+      msg.setUser(value);
+      break;
+    case 2:
       var value = new proto.user.api.UserInfo;
       reader.readMessage(value,proto.user.api.UserInfo.deserializeBinaryFromReader);
       msg.setInfo(value);
       break;
-    case 2:
+    case 3:
       var value = /** @type {string} */ (reader.readString());
       msg.setCreateAt(value);
       break;
-    case 3:
+    case 4:
       var value = /** @type {string} */ (reader.readString());
       msg.setLastLoginAt(value);
       break;
-    case 4:
+    case 5:
       var value = /** @type {number} */ (reader.readInt64());
       msg.setPrivileges(value);
       break;
@@ -6378,10 +6384,18 @@ proto.user.api.UserListItem.prototype.serializeBinary = function() {
  */
 proto.user.api.UserListItem.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getInfo();
+  f = message.getUser();
   if (f != null) {
     writer.writeMessage(
       1,
+      f,
+      proto.user.api.UserId.serializeBinaryToWriter
+    );
+  }
+  f = message.getInfo();
+  if (f != null) {
+    writer.writeMessage(
+      2,
       f,
       proto.user.api.UserInfo.serializeBinaryToWriter
     );
@@ -6389,21 +6403,21 @@ proto.user.api.UserListItem.serializeBinaryToWriter = function(message, writer) 
   f = message.getCreateAt();
   if (f.length > 0) {
     writer.writeString(
-      2,
+      3,
       f
     );
   }
   f = message.getLastLoginAt();
   if (f.length > 0) {
     writer.writeString(
-      3,
+      4,
       f
     );
   }
   f = message.getPrivileges();
   if (f !== 0) {
     writer.writeInt64(
-      4,
+      5,
       f
     );
   }
@@ -6411,12 +6425,49 @@ proto.user.api.UserListItem.serializeBinaryToWriter = function(message, writer) 
 
 
 /**
- * optional UserInfo info = 1;
+ * optional UserId user = 1;
+ * @return {?proto.user.api.UserId}
+ */
+proto.user.api.UserListItem.prototype.getUser = function() {
+  return /** @type{?proto.user.api.UserId} */ (
+    jspb.Message.getWrapperField(this, proto.user.api.UserId, 1));
+};
+
+
+/**
+ * @param {?proto.user.api.UserId|undefined} value
+ * @return {!proto.user.api.UserListItem} returns this
+*/
+proto.user.api.UserListItem.prototype.setUser = function(value) {
+  return jspb.Message.setWrapperField(this, 1, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.user.api.UserListItem} returns this
+ */
+proto.user.api.UserListItem.prototype.clearUser = function() {
+  return this.setUser(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.user.api.UserListItem.prototype.hasUser = function() {
+  return jspb.Message.getField(this, 1) != null;
+};
+
+
+/**
+ * optional UserInfo info = 2;
  * @return {?proto.user.api.UserInfo}
  */
 proto.user.api.UserListItem.prototype.getInfo = function() {
   return /** @type{?proto.user.api.UserInfo} */ (
-    jspb.Message.getWrapperField(this, proto.user.api.UserInfo, 1));
+    jspb.Message.getWrapperField(this, proto.user.api.UserInfo, 2));
 };
 
 
@@ -6425,7 +6476,7 @@ proto.user.api.UserListItem.prototype.getInfo = function() {
  * @return {!proto.user.api.UserListItem} returns this
 */
 proto.user.api.UserListItem.prototype.setInfo = function(value) {
-  return jspb.Message.setWrapperField(this, 1, value);
+  return jspb.Message.setWrapperField(this, 2, value);
 };
 
 
@@ -6443,33 +6494,15 @@ proto.user.api.UserListItem.prototype.clearInfo = function() {
  * @return {boolean}
  */
 proto.user.api.UserListItem.prototype.hasInfo = function() {
-  return jspb.Message.getField(this, 1) != null;
+  return jspb.Message.getField(this, 2) != null;
 };
 
 
 /**
- * optional string create_at = 2;
+ * optional string create_at = 3;
  * @return {string}
  */
 proto.user.api.UserListItem.prototype.getCreateAt = function() {
-  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 2, ""));
-};
-
-
-/**
- * @param {string} value
- * @return {!proto.user.api.UserListItem} returns this
- */
-proto.user.api.UserListItem.prototype.setCreateAt = function(value) {
-  return jspb.Message.setProto3StringField(this, 2, value);
-};
-
-
-/**
- * optional string last_login_at = 3;
- * @return {string}
- */
-proto.user.api.UserListItem.prototype.getLastLoginAt = function() {
   return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
@@ -6478,17 +6511,35 @@ proto.user.api.UserListItem.prototype.getLastLoginAt = function() {
  * @param {string} value
  * @return {!proto.user.api.UserListItem} returns this
  */
-proto.user.api.UserListItem.prototype.setLastLoginAt = function(value) {
+proto.user.api.UserListItem.prototype.setCreateAt = function(value) {
   return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
 /**
- * optional int64 privileges = 4;
+ * optional string last_login_at = 4;
+ * @return {string}
+ */
+proto.user.api.UserListItem.prototype.getLastLoginAt = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.user.api.UserListItem} returns this
+ */
+proto.user.api.UserListItem.prototype.setLastLoginAt = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
+};
+
+
+/**
+ * optional int64 privileges = 5;
  * @return {number}
  */
 proto.user.api.UserListItem.prototype.getPrivileges = function() {
-  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 4, 0));
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 5, 0));
 };
 
 
@@ -6497,7 +6548,7 @@ proto.user.api.UserListItem.prototype.getPrivileges = function() {
  * @return {!proto.user.api.UserListItem} returns this
  */
 proto.user.api.UserListItem.prototype.setPrivileges = function(value) {
-  return jspb.Message.setProto3IntField(this, 4, value);
+  return jspb.Message.setProto3IntField(this, 5, value);
 };
 
 
