@@ -183,6 +183,55 @@ message UpdateDetailInfoResponse {
     ServerStatus status = 1;
 }
 
+message GetUserListRequest {
+    string token = 1;
+    string csrf_token = 2;
+    int64 offset = 3;
+    int32 limit = 4;
+    string keyword = 5;
+}
+
+message UserListItem {
+    UserInfo user_name = 1;
+    string nick_name = 2;
+    string create_at = 3;
+    string last_login_at = 4;
+    int64 privileges = 5;
+}
+
+message GetUserListResponse {
+    ServerStatus status = 1;
+    int64 cnt = 2;
+    repeated UserListItem users = 3;
+}
+
+message ManagerUserResetPasswordRequest {
+    string new_password = 1;
+}
+
+enum ManagerUserType {
+    MUTNone = 0;
+    MUTDelete = 1;
+    MUTSetAdminPrivilege = 2;
+    MUTUnsetAdminPrivilege = 3;
+    MUTSwitchAdminPrivilege = 4;
+    MUTResetPassword = 5;
+}
+
+message ManagerUserRequest {
+    string token = 1;
+    string csrf_token = 2;
+    int64 uid = 3;
+    ManagerUserType type = 4;
+    oneof Payload {
+        ManagerUserResetPasswordRequest reset_password = 50;
+    }
+}
+
+message ManagerUserResponse {
+    ServerStatus status = 1;
+}
+
 message AdminProfileRequest {
     string token = 1;
 }
@@ -216,6 +265,9 @@ service UserService {
     rpc GetDetailInfo(GetDetailInfoRequest) returns (GetDetailInfoResponse) {}
     rpc UpdateDetailInfo(UpdateDetailInfoRequest) returns (UpdateDetailInfoResponse) {}
 
+    //
+    rpc GetUserList(GetUserListRequest) returns (GetUserListResponse) {}
+    rpc ManagerUser(ManagerUserRequest) returns (ManagerUserResponse) {}
     //
     // admin
     //
