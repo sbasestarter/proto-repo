@@ -192,10 +192,11 @@ message GetUserListRequest {
 }
 
 message UserListItem {
-    UserInfo info = 1;
-    string create_at = 2;
-    string last_login_at = 3;
-    int64 privileges = 4;
+    UserId user = 1;
+    UserInfo info = 2;
+    string create_at = 3;
+    string last_login_at = 4;
+    int64 privileges = 5;
 }
 
 message GetUserListResponse {
