@@ -64,6 +64,24 @@
         }
       }
     },
+    "apiGetUserListResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/apiServerStatus"
+        },
+        "cnt": {
+          "type": "string",
+          "format": "int64"
+        },
+        "users": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiUserListItem"
+          }
+        }
+      }
+    },
     "apiGoogleAuthGetSetupInfoResponse": {
       "type": "object",
       "properties": {
@@ -110,6 +128,34 @@
           "$ref": "#/definitions/apiServerStatus"
         }
       }
+    },
+    "apiManagerUserResetPasswordRequest": {
+      "type": "object",
+      "properties": {
+        "new_password": {
+          "type": "string"
+        }
+      }
+    },
+    "apiManagerUserResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/apiServerStatus"
+        }
+      }
+    },
+    "apiManagerUserType": {
+      "type": "string",
+      "enum": [
+        "MUTNone",
+        "MUTDelete",
+        "MUTSetAdminPrivilege",
+        "MUTUnsetAdminPrivilege",
+        "MUTSwitchAdminPrivilege",
+        "MUTResetPassword"
+      ],
+      "default": "MUTNone"
     },
     "apiProfileResponse": {
       "type": "object",
@@ -232,6 +278,27 @@
         },
         "flag_ga": {
           "$ref": "#/definitions/apiGoogleAuthGlobalFlag"
+        }
+      }
+    },
+    "apiUserListItem": {
+      "type": "object",
+      "properties": {
+        "user_name": {
+          "$ref": "#/definitions/apiUserInfo"
+        },
+        "nick_name": {
+          "type": "string"
+        },
+        "create_at": {
+          "type": "string"
+        },
+        "last_login_at": {
+          "type": "string"
+        },
+        "privileges": {
+          "type": "string",
+          "format": "int64"
         }
       }
     },

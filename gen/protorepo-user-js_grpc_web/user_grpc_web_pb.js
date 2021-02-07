@@ -1192,6 +1192,166 @@ proto.user.api.UserServicePromiseClient.prototype.updateDetailInfo =
 /**
  * @const
  * @type {!grpc.web.MethodDescriptor<
+ *   !proto.user.api.GetUserListRequest,
+ *   !proto.user.api.GetUserListResponse>}
+ */
+const methodDescriptor_UserService_GetUserList = new grpc.web.MethodDescriptor(
+  '/user.api.UserService/GetUserList',
+  grpc.web.MethodType.UNARY,
+  proto.user.api.GetUserListRequest,
+  proto.user.api.GetUserListResponse,
+  /**
+   * @param {!proto.user.api.GetUserListRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.user.api.GetUserListResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.user.api.GetUserListRequest,
+ *   !proto.user.api.GetUserListResponse>}
+ */
+const methodInfo_UserService_GetUserList = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.user.api.GetUserListResponse,
+  /**
+   * @param {!proto.user.api.GetUserListRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.user.api.GetUserListResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.user.api.GetUserListRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.user.api.GetUserListResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.user.api.GetUserListResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.user.api.UserServiceClient.prototype.getUserList =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/user.api.UserService/GetUserList',
+      request,
+      metadata || {},
+      methodDescriptor_UserService_GetUserList,
+      callback);
+};
+
+
+/**
+ * @param {!proto.user.api.GetUserListRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.user.api.GetUserListResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.user.api.UserServicePromiseClient.prototype.getUserList =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/user.api.UserService/GetUserList',
+      request,
+      metadata || {},
+      methodDescriptor_UserService_GetUserList);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.user.api.ManagerUserRequest,
+ *   !proto.user.api.ManagerUserResponse>}
+ */
+const methodDescriptor_UserService_ManagerUser = new grpc.web.MethodDescriptor(
+  '/user.api.UserService/ManagerUser',
+  grpc.web.MethodType.UNARY,
+  proto.user.api.ManagerUserRequest,
+  proto.user.api.ManagerUserResponse,
+  /**
+   * @param {!proto.user.api.ManagerUserRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.user.api.ManagerUserResponse.deserializeBinary
+);
+
+
+/**
+ * @const
+ * @type {!grpc.web.AbstractClientBase.MethodInfo<
+ *   !proto.user.api.ManagerUserRequest,
+ *   !proto.user.api.ManagerUserResponse>}
+ */
+const methodInfo_UserService_ManagerUser = new grpc.web.AbstractClientBase.MethodInfo(
+  proto.user.api.ManagerUserResponse,
+  /**
+   * @param {!proto.user.api.ManagerUserRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.user.api.ManagerUserResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.user.api.ManagerUserRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.Error, ?proto.user.api.ManagerUserResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.user.api.ManagerUserResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.user.api.UserServiceClient.prototype.managerUser =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/user.api.UserService/ManagerUser',
+      request,
+      metadata || {},
+      methodDescriptor_UserService_ManagerUser,
+      callback);
+};
+
+
+/**
+ * @param {!proto.user.api.ManagerUserRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.user.api.ManagerUserResponse>}
+ *     A native promise that resolves to the response
+ */
+proto.user.api.UserServicePromiseClient.prototype.managerUser =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/user.api.UserService/ManagerUser',
+      request,
+      metadata || {},
+      methodDescriptor_UserService_ManagerUser);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
  *   !proto.user.api.AdminProfileRequest,
  *   !proto.user.api.AdminProfileResponse>}
  */
