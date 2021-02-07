@@ -284,11 +284,8 @@
     "apiUserListItem": {
       "type": "object",
       "properties": {
-        "user_name": {
+        "info": {
           "$ref": "#/definitions/apiUserInfo"
-        },
-        "nick_name": {
-          "type": "string"
         },
         "create_at": {
           "type": "string"
