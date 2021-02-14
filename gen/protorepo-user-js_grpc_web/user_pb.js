@@ -1339,7 +1339,8 @@ proto.user.api.RegisterRequest.toObject = function(includeInstance, msg) {
     user: (f = msg.getUser()) && proto.user.api.UserId.toObject(includeInstance, f),
     codeForVe: jspb.Message.getFieldWithDefault(msg, 2, ""),
     newPassword: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    attachSsoToken: jspb.Message.getBooleanFieldWithDefault(msg, 4, false)
+    attachSsoToken: jspb.Message.getBooleanFieldWithDefault(msg, 4, false),
+    ssoJumpUrl: jspb.Message.getFieldWithDefault(msg, 5, "")
   };
 
   if (includeInstance) {
@@ -1392,6 +1393,10 @@ proto.user.api.RegisterRequest.deserializeBinaryFromReader = function(msg, reade
     case 4:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setAttachSsoToken(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSsoJumpUrl(value);
       break;
     default:
       reader.skipField();
@@ -1448,6 +1453,13 @@ proto.user.api.RegisterRequest.serializeBinaryToWriter = function(message, write
   if (f) {
     writer.writeBool(
       4,
+      f
+    );
+  }
+  f = message.getSsoJumpUrl();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
       f
     );
   }
@@ -1545,6 +1557,24 @@ proto.user.api.RegisterRequest.prototype.setAttachSsoToken = function(value) {
 };
 
 
+/**
+ * optional string sso_jump_url = 5;
+ * @return {string}
+ */
+proto.user.api.RegisterRequest.prototype.getSsoJumpUrl = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.user.api.RegisterRequest} returns this
+ */
+proto.user.api.RegisterRequest.prototype.setSsoJumpUrl = function(value) {
+  return jspb.Message.setProto3StringField(this, 5, value);
+};
+
+
 
 
 
@@ -1581,7 +1611,8 @@ proto.user.api.LoginRequest.toObject = function(includeInstance, msg) {
     password: jspb.Message.getFieldWithDefault(msg, 2, ""),
     codeForVe: jspb.Message.getFieldWithDefault(msg, 3, ""),
     codeForGa: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    attachSsoToken: jspb.Message.getBooleanFieldWithDefault(msg, 5, false)
+    attachSsoToken: jspb.Message.getBooleanFieldWithDefault(msg, 5, false),
+    ssoJumpUrl: jspb.Message.getFieldWithDefault(msg, 6, "")
   };
 
   if (includeInstance) {
@@ -1638,6 +1669,10 @@ proto.user.api.LoginRequest.deserializeBinaryFromReader = function(msg, reader) 
     case 5:
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setAttachSsoToken(value);
+      break;
+    case 6:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSsoJumpUrl(value);
       break;
     default:
       reader.skipField();
@@ -1701,6 +1736,13 @@ proto.user.api.LoginRequest.serializeBinaryToWriter = function(message, writer) 
   if (f) {
     writer.writeBool(
       5,
+      f
+    );
+  }
+  f = message.getSsoJumpUrl();
+  if (f.length > 0) {
+    writer.writeString(
+      6,
       f
     );
   }
@@ -1813,6 +1855,24 @@ proto.user.api.LoginRequest.prototype.getAttachSsoToken = function() {
  */
 proto.user.api.LoginRequest.prototype.setAttachSsoToken = function(value) {
   return jspb.Message.setProto3BooleanField(this, 5, value);
+};
+
+
+/**
+ * optional string sso_jump_url = 6;
+ * @return {string}
+ */
+proto.user.api.LoginRequest.prototype.getSsoJumpUrl = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 6, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.user.api.LoginRequest} returns this
+ */
+proto.user.api.LoginRequest.prototype.setSsoJumpUrl = function(value) {
+  return jspb.Message.setProto3StringField(this, 6, value);
 };
 
 
@@ -3765,7 +3825,8 @@ proto.user.api.ProfileRequest.prototype.toObject = function(opt_includeInstance)
 proto.user.api.ProfileRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
     token: jspb.Message.getFieldWithDefault(msg, 1, ""),
-    attachSsoToken: jspb.Message.getBooleanFieldWithDefault(msg, 2, false)
+    attachSsoToken: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
+    ssoJumpUrl: jspb.Message.getFieldWithDefault(msg, 5, "")
   };
 
   if (includeInstance) {
@@ -3810,6 +3871,10 @@ proto.user.api.ProfileRequest.deserializeBinaryFromReader = function(msg, reader
       var value = /** @type {boolean} */ (reader.readBool());
       msg.setAttachSsoToken(value);
       break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setSsoJumpUrl(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -3853,6 +3918,13 @@ proto.user.api.ProfileRequest.serializeBinaryToWriter = function(message, writer
       f
     );
   }
+  f = message.getSsoJumpUrl();
+  if (f.length > 0) {
+    writer.writeString(
+      5,
+      f
+    );
+  }
 };
 
 
@@ -3889,6 +3961,24 @@ proto.user.api.ProfileRequest.prototype.getAttachSsoToken = function() {
  */
 proto.user.api.ProfileRequest.prototype.setAttachSsoToken = function(value) {
   return jspb.Message.setProto3BooleanField(this, 2, value);
+};
+
+
+/**
+ * optional string sso_jump_url = 5;
+ * @return {string}
+ */
+proto.user.api.ProfileRequest.prototype.getSsoJumpUrl = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.user.api.ProfileRequest} returns this
+ */
+proto.user.api.ProfileRequest.prototype.setSsoJumpUrl = function(value) {
+  return jspb.Message.setProto3StringField(this, 5, value);
 };
 
 
