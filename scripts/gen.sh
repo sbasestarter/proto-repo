@@ -63,6 +63,10 @@ function buildProtoForTypes {
       # cp -R gen/pb*$lang/* $REPOPATH/$reponame/
       find gen/pb*$lang/ -type f -exec cp -a {} $REPOPATH/$reponame/ \;
 
+      pushd "$REPOPATH/$reponame"
+      for f in *.js; do [ -f "$f" ] || break; if [[ `awk 'NR==1{print}' "$f"` == "/* eslint-disable */"  ]]; then echo "y"; else `echo '/* eslint-disable */' | cat - "$f" > temp && mv -f temp "$f"`; fi; done
+      popd
+
       if [ "$lang" = "js" ]; then
         cat > $REPOPATH/$reponame/package.json <<_EOF
 { "name": "$target", "version": "$GITSHA" }

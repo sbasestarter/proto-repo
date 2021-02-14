@@ -1,3 +1,4 @@
+/* eslint-disable */
 // source: file-center/file-center.proto
 /**
  * @fileoverview
