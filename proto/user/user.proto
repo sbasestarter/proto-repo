@@ -50,6 +50,7 @@ message RegisterRequest {
     string code_for_ve = 2;
     string new_password = 3;
     bool attach_sso_token = 4;
+    string sso_jump_url = 5;
 }
 
 message LoginRequest {
@@ -58,6 +59,7 @@ message LoginRequest {
     string code_for_ve = 3;
     string code_for_ga = 4;
     bool attach_sso_token = 5;
+    string sso_jump_url = 6;
 }
 
 message UserInfo {
@@ -119,6 +121,7 @@ message GoogleAuthSetResponse {
 message ProfileRequest {
     string token = 1;
     bool attach_sso_token = 2; // SSO 登录，如果有token，就会调用Profile尝试获取sso token
+    string sso_jump_url = 5;
 }
 
 message ProfileResponse {
