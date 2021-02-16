@@ -21,6 +21,17 @@
       ],
       "default": "FCS_UNKNOWN"
     },
+    "apiGetKVResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/apiServerStatus"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
     "apiServerStatus": {
       "type": "object",
       "properties": {
@@ -29,6 +40,14 @@
         },
         "msg": {
           "type": "string"
+        }
+      }
+    },
+    "apiSetKVResponse": {
+      "type": "object",
+      "properties": {
+        "status": {
+          "$ref": "#/definitions/apiServerStatus"
         }
       }
     },

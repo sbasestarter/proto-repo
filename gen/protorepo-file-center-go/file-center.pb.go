@@ -116,33 +116,214 @@ func (m *UpdateFileResponse) GetFileUrl() string {
 	return ""
 }
 
+type GetKVRequest struct {
+	Key                  string   `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *GetKVRequest) Reset()         { *m = GetKVRequest{} }
+func (m *GetKVRequest) String() string { return proto.CompactTextString(m) }
+func (*GetKVRequest) ProtoMessage()    {}
+func (*GetKVRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_5681b265c29dddbf, []int{2}
+}
+
+func (m *GetKVRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetKVRequest.Unmarshal(m, b)
+}
+func (m *GetKVRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetKVRequest.Marshal(b, m, deterministic)
+}
+func (m *GetKVRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetKVRequest.Merge(m, src)
+}
+func (m *GetKVRequest) XXX_Size() int {
+	return xxx_messageInfo_GetKVRequest.Size(m)
+}
+func (m *GetKVRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetKVRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetKVRequest proto.InternalMessageInfo
+
+func (m *GetKVRequest) GetKey() string {
+	if m != nil {
+		return m.Key
+	}
+	return ""
+}
+
+type GetKVResponse struct {
+	Status               *ServerStatus `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
+	Value                string        `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
+	XXX_unrecognized     []byte        `json:"-"`
+	XXX_sizecache        int32         `json:"-"`
+}
+
+func (m *GetKVResponse) Reset()         { *m = GetKVResponse{} }
+func (m *GetKVResponse) String() string { return proto.CompactTextString(m) }
+func (*GetKVResponse) ProtoMessage()    {}
+func (*GetKVResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_5681b265c29dddbf, []int{3}
+}
+
+func (m *GetKVResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_GetKVResponse.Unmarshal(m, b)
+}
+func (m *GetKVResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_GetKVResponse.Marshal(b, m, deterministic)
+}
+func (m *GetKVResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_GetKVResponse.Merge(m, src)
+}
+func (m *GetKVResponse) XXX_Size() int {
+	return xxx_messageInfo_GetKVResponse.Size(m)
+}
+func (m *GetKVResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_GetKVResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_GetKVResponse proto.InternalMessageInfo
+
+func (m *GetKVResponse) GetStatus() *ServerStatus {
+	if m != nil {
+		return m.Status
+	}
+	return nil
+}
+
+func (m *GetKVResponse) GetValue() string {
+	if m != nil {
+		return m.Value
+	}
+	return ""
+}
+
+type SetKVRequest struct {
+	Key                  string   `protobuf:"bytes,1,opt,name=key,proto3" json:"key,omitempty"`
+	Value                string   `protobuf:"bytes,2,opt,name=value,proto3" json:"value,omitempty"`
+	XXX_NoUnkeyedLiteral struct{} `json:"-"`
+	XXX_unrecognized     []byte   `json:"-"`
+	XXX_sizecache        int32    `json:"-"`
+}
+
+func (m *SetKVRequest) Reset()         { *m = SetKVRequest{} }
+func (m *SetKVRequest) String() string { return proto.CompactTextString(m) }
+func (*SetKVRequest) ProtoMessage()    {}
+func (*SetKVRequest) Descriptor() ([]byte, []int) {
+	return fileDescriptor_5681b265c29dddbf, []int{4}
+}
+
+func (m *SetKVRequest) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SetKVRequest.Unmarshal(m, b)
+}
+func (m *SetKVRequest) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SetKVRequest.Marshal(b, m, deterministic)
+}
+func (m *SetKVRequest) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SetKVRequest.Merge(m, src)
+}
+func (m *SetKVRequest) XXX_Size() int {
+	return xxx_messageInfo_SetKVRequest.Size(m)
+}
+func (m *SetKVRequest) XXX_DiscardUnknown() {
+	xxx_messageInfo_SetKVRequest.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SetKVRequest proto.InternalMessageInfo
+
+func (m *SetKVRequest) GetKey() string {
+	if m != nil {
+		return m.Key
+	}
+	return ""
+}
+
+func (m *SetKVRequest) GetValue() string {
+	if m != nil {
+		return m.Value
+	}
+	return ""
+}
+
+type SetKVResponse struct {
+	Status               *ServerStatus `protobuf:"bytes,1,opt,name=status,proto3" json:"status,omitempty"`
+	XXX_NoUnkeyedLiteral struct{}      `json:"-"`
+	XXX_unrecognized     []byte        `json:"-"`
+	XXX_sizecache        int32         `json:"-"`
+}
+
+func (m *SetKVResponse) Reset()         { *m = SetKVResponse{} }
+func (m *SetKVResponse) String() string { return proto.CompactTextString(m) }
+func (*SetKVResponse) ProtoMessage()    {}
+func (*SetKVResponse) Descriptor() ([]byte, []int) {
+	return fileDescriptor_5681b265c29dddbf, []int{5}
+}
+
+func (m *SetKVResponse) XXX_Unmarshal(b []byte) error {
+	return xxx_messageInfo_SetKVResponse.Unmarshal(m, b)
+}
+func (m *SetKVResponse) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
+	return xxx_messageInfo_SetKVResponse.Marshal(b, m, deterministic)
+}
+func (m *SetKVResponse) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_SetKVResponse.Merge(m, src)
+}
+func (m *SetKVResponse) XXX_Size() int {
+	return xxx_messageInfo_SetKVResponse.Size(m)
+}
+func (m *SetKVResponse) XXX_DiscardUnknown() {
+	xxx_messageInfo_SetKVResponse.DiscardUnknown(m)
+}
+
+var xxx_messageInfo_SetKVResponse proto.InternalMessageInfo
+
+func (m *SetKVResponse) GetStatus() *ServerStatus {
+	if m != nil {
+		return m.Status
+	}
+	return nil
+}
+
 func init() {
 	proto.RegisterType((*UpdateFileRequest)(nil), "filecenter.api.UpdateFileRequest")
 	proto.RegisterType((*UpdateFileResponse)(nil), "filecenter.api.UpdateFileResponse")
+	proto.RegisterType((*GetKVRequest)(nil), "filecenter.api.GetKVRequest")
+	proto.RegisterType((*GetKVResponse)(nil), "filecenter.api.GetKVResponse")
+	proto.RegisterType((*SetKVRequest)(nil), "filecenter.api.SetKVRequest")
+	proto.RegisterType((*SetKVResponse)(nil), "filecenter.api.SetKVResponse")
 }
 
 func init() { proto.RegisterFile("file-center/file-center.proto", fileDescriptor_5681b265c29dddbf) }
 
 var fileDescriptor_5681b265c29dddbf = []byte{
-	// 282 bytes of a gzipped FileDescriptorProto
-	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0x7c, 0x90, 0x31, 0x4f, 0xc3, 0x30,
-	0x10, 0x85, 0x09, 0x43, 0x4b, 0x0e, 0x84, 0x84, 0xa7, 0x50, 0x40, 0x2a, 0x99, 0xba, 0x24, 0x91,
-	0x0a, 0x13, 0x6c, 0x20, 0x31, 0x30, 0x30, 0xa4, 0xca, 0xc2, 0x52, 0x39, 0xe1, 0x48, 0x83, 0x12,
-	0xdb, 0xf8, 0x2e, 0xfc, 0x7e, 0x64, 0xa7, 0xa8, 0x01, 0xa4, 0x6e, 0x79, 0x4f, 0x5f, 0xde, 0x3b,
-	0x3f, 0xb8, 0x7a, 0x6f, 0x5a, 0x4c, 0x2a, 0x54, 0x8c, 0x36, 0x1b, 0x7d, 0xa7, 0xc6, 0x6a, 0xd6,
-	0xe2, 0xd4, 0x59, 0x5b, 0x47, 0x9a, 0x66, 0x16, 0x8d, 0x71, 0x62, 0xc9, 0x3d, 0x0d, 0x64, 0xfc,
-	0x0c, 0x67, 0x85, 0x79, 0x93, 0x8c, 0x4f, 0x4d, 0x8b, 0x39, 0x7e, 0xf6, 0x48, 0x2c, 0x2e, 0x20,
-	0x74, 0x3f, 0xac, 0x95, 0xec, 0x30, 0x0a, 0xe6, 0xc1, 0x22, 0xcc, 0x8f, 0x9c, 0xf1, 0x22, 0x3b,
-	0x14, 0x11, 0x4c, 0x2b, 0xad, 0x18, 0x15, 0x47, 0x87, 0xf3, 0x60, 0x71, 0x92, 0xff, 0xc8, 0x18,
-	0x41, 0x8c, 0xb3, 0xc8, 0x68, 0x45, 0x28, 0x6e, 0x61, 0x32, 0x34, 0xfa, 0xa4, 0xe3, 0xe5, 0x65,
-	0xfa, 0xfb, 0xb8, 0x74, 0x85, 0xf6, 0x0b, 0xed, 0xca, 0x33, 0xf9, 0x96, 0x15, 0xe7, 0xe0, 0x1b,
-	0xd7, 0xbd, 0x6d, 0x7d, 0x4d, 0x98, 0x4f, 0x9d, 0x2e, 0x6c, 0xbb, 0xac, 0x00, 0x5c, 0xc1, 0xa3,
-	0x4f, 0x10, 0x05, 0xc0, 0xae, 0x54, 0x5c, 0xff, 0x0d, 0xff, 0xf7, 0xb8, 0x59, 0xbc, 0x0f, 0x19,
-	0x6e, 0x8e, 0x0f, 0x1e, 0xda, 0xd7, 0x8f, 0x0d, 0xb3, 0xa1, 0xbb, 0x2c, 0xab, 0x1b, 0xde, 0xf4,
-	0x65, 0x5a, 0xe9, 0x2e, 0xa3, 0x52, 0x12, 0x12, 0x4b, 0xeb, 0x76, 0xf4, 0x03, 0x26, 0x16, 0x8d,
-	0xce, 0x6a, 0x54, 0x83, 0x74, 0x2a, 0xe9, 0x09, 0x6d, 0x52, 0xeb, 0x91, 0x33, 0x9a, 0x3f, 0xa9,
-	0x75, 0x5a, 0x37, 0x7c, 0xbf, 0x3b, 0xc2, 0x94, 0xe5, 0xc4, 0xa3, 0x37, 0xdf, 0x01, 0x00, 0x00,
-	0xff, 0xff, 0x2d, 0xd7, 0xaa, 0x31, 0xd7, 0x01, 0x00, 0x00,
+	// 367 bytes of a gzipped FileDescriptorProto
+	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xa4, 0x53, 0xc1, 0x4e, 0xc2, 0x40,
+	0x14, 0xb4, 0x1a, 0x40, 0x9e, 0x60, 0x74, 0xe3, 0xa1, 0xa2, 0x24, 0xd8, 0x13, 0x97, 0xb6, 0x09,
+	0x1a, 0x0f, 0x7a, 0xd3, 0x88, 0x89, 0x26, 0x1e, 0xda, 0xe0, 0x41, 0x0f, 0x64, 0x8b, 0xcf, 0x52,
+	0x2d, 0xdd, 0xba, 0xbb, 0x25, 0xf1, 0xbb, 0xfd, 0x01, 0xb3, 0xdb, 0x12, 0x8a, 0x08, 0x17, 0x6e,
+	0x3b, 0xaf, 0xb3, 0x33, 0x93, 0xe9, 0x5b, 0x68, 0xbf, 0x47, 0x31, 0xda, 0x23, 0x4c, 0x24, 0x72,
+	0xb7, 0x74, 0x76, 0x52, 0xce, 0x24, 0x23, 0xfb, 0x6a, 0x54, 0x4c, 0x68, 0x1a, 0xb5, 0xcc, 0x32,
+	0x5d, 0x48, 0x2a, 0x33, 0x91, 0x33, 0xad, 0x07, 0x38, 0x1c, 0xa4, 0x6f, 0x54, 0x62, 0x3f, 0x8a,
+	0xd1, 0xc3, 0xaf, 0x0c, 0x85, 0x24, 0x27, 0x50, 0x57, 0x17, 0x86, 0x09, 0x9d, 0xa0, 0x69, 0x74,
+	0x8c, 0x6e, 0xdd, 0xdb, 0x55, 0x83, 0x27, 0x3a, 0x41, 0x62, 0x42, 0x6d, 0xc4, 0x12, 0x89, 0x89,
+	0x34, 0xb7, 0x3b, 0x46, 0xb7, 0xe1, 0xcd, 0xa0, 0x85, 0x40, 0xca, 0x5a, 0x22, 0x65, 0x89, 0x40,
+	0x72, 0x01, 0xd5, 0xdc, 0x51, 0x2b, 0xed, 0xf5, 0x4e, 0x9d, 0xc5, 0x70, 0x8e, 0x8f, 0x7c, 0x8a,
+	0xdc, 0xd7, 0x1c, 0xaf, 0xe0, 0x92, 0x63, 0xd0, 0x8e, 0xc3, 0x8c, 0xc7, 0xda, 0xa6, 0xee, 0xd5,
+	0x14, 0x1e, 0xf0, 0xd8, 0xea, 0x40, 0xe3, 0x1e, 0xe5, 0xe3, 0xf3, 0x2c, 0xed, 0x01, 0xec, 0x7c,
+	0xe2, 0x77, 0x91, 0x53, 0x1d, 0xad, 0x57, 0x68, 0x16, 0x8c, 0x8d, 0x32, 0x1c, 0x41, 0x65, 0x4a,
+	0xe3, 0x0c, 0x8b, 0x00, 0x39, 0xb0, 0x2e, 0xa1, 0xe1, 0xaf, 0xb5, 0x5f, 0x71, 0xef, 0x0e, 0x9a,
+	0xfe, 0xe6, 0xa1, 0x7a, 0x3f, 0x06, 0x80, 0xea, 0xf7, 0x56, 0xf3, 0xc8, 0x00, 0x60, 0xde, 0x39,
+	0x39, 0xfb, 0x2b, 0xb1, 0xf4, 0x6f, 0x5b, 0xd6, 0x3a, 0x4a, 0x9e, 0xcc, 0xda, 0x22, 0x7d, 0xa8,
+	0xe8, 0x06, 0xc9, 0x52, 0xa8, 0x72, 0xf5, 0xad, 0xf6, 0x8a, 0xaf, 0x65, 0x1d, 0xff, 0x7f, 0x1d,
+	0x7f, 0xad, 0x8e, 0xbf, 0xa8, 0x73, 0x13, 0xbf, 0x7c, 0x8c, 0xa5, 0x4c, 0xc5, 0x95, 0xeb, 0x86,
+	0x91, 0x1c, 0x67, 0x81, 0x33, 0x62, 0x13, 0x57, 0x04, 0x54, 0xa0, 0x90, 0x94, 0xab, 0xb5, 0xd6,
+	0xfb, 0x6c, 0x73, 0x4c, 0x99, 0x1b, 0x62, 0x92, 0x43, 0x85, 0xec, 0x4c, 0x20, 0xb7, 0x43, 0x56,
+	0x9a, 0x94, 0x5e, 0x83, 0x1d, 0x32, 0x27, 0x8c, 0xe4, 0xf5, 0xdc, 0x3f, 0x0d, 0x82, 0xaa, 0xa6,
+	0x9e, 0xff, 0x06, 0x00, 0x00, 0xff, 0xff, 0x54, 0xbc, 0x6e, 0xf0, 0x66, 0x03, 0x00, 0x00,
 }
 
 // Reference imports to suppress errors if they are not otherwise used.
@@ -158,6 +339,8 @@ const _ = grpc.SupportPackageIsVersion4
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://godoc.org/google.golang.org/grpc#ClientConn.NewStream.
 type FileCenterClient interface {
 	UpdateFile(ctx context.Context, in *UpdateFileRequest, opts ...grpc.CallOption) (*UpdateFileResponse, error)
+	GetKV(ctx context.Context, in *GetKVRequest, opts ...grpc.CallOption) (*GetKVResponse, error)
+	SetKV(ctx context.Context, in *SetKVRequest, opts ...grpc.CallOption) (*SetKVResponse, error)
 }
 
 type fileCenterClient struct {
@@ -177,9 +360,29 @@ func (c *fileCenterClient) UpdateFile(ctx context.Context, in *UpdateFileRequest
 	return out, nil
 }
 
+func (c *fileCenterClient) GetKV(ctx context.Context, in *GetKVRequest, opts ...grpc.CallOption) (*GetKVResponse, error) {
+	out := new(GetKVResponse)
+	err := c.cc.Invoke(ctx, "/filecenter.api.FileCenter/GetKV", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *fileCenterClient) SetKV(ctx context.Context, in *SetKVRequest, opts ...grpc.CallOption) (*SetKVResponse, error) {
+	out := new(SetKVResponse)
+	err := c.cc.Invoke(ctx, "/filecenter.api.FileCenter/SetKV", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // FileCenterServer is the server API for FileCenter service.
 type FileCenterServer interface {
 	UpdateFile(context.Context, *UpdateFileRequest) (*UpdateFileResponse, error)
+	GetKV(context.Context, *GetKVRequest) (*GetKVResponse, error)
+	SetKV(context.Context, *SetKVRequest) (*SetKVResponse, error)
 }
 
 func RegisterFileCenterServer(s *grpc.Server, srv FileCenterServer) {
@@ -204,6 +407,42 @@ func _FileCenter_UpdateFile_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
+func _FileCenter_GetKV_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetKVRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileCenterServer).GetKV(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/filecenter.api.FileCenter/GetKV",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileCenterServer).GetKV(ctx, req.(*GetKVRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _FileCenter_SetKV_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(SetKVRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(FileCenterServer).SetKV(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/filecenter.api.FileCenter/SetKV",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(FileCenterServer).SetKV(ctx, req.(*SetKVRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 var _FileCenter_serviceDesc = grpc.ServiceDesc{
 	ServiceName: "filecenter.api.FileCenter",
 	HandlerType: (*FileCenterServer)(nil),
@@ -211,6 +450,14 @@ var _FileCenter_serviceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "UpdateFile",
 			Handler:    _FileCenter_UpdateFile_Handler,
+		},
+		{
+			MethodName: "GetKV",
+			Handler:    _FileCenter_GetKV_Handler,
+		},
+		{
+			MethodName: "SetKV",
+			Handler:    _FileCenter_SetKV_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
