@@ -16,6 +16,27 @@ message UpdateFileResponse {
     string file_url = 2;
 }
 
+message GetKVRequest {
+    string key = 1;
+}
+
+message GetKVResponse {
+    ServerStatus status = 1;
+    string value = 2;
+}
+
+message SetKVRequest {
+    string key = 1;
+    string value = 2;
+}
+
+message SetKVResponse {
+    ServerStatus status = 1;
+}
+
 service FileCenter {
     rpc UpdateFile(UpdateFileRequest) returns (UpdateFileResponse) {}
+
+    rpc GetKV(GetKVRequest) returns (GetKVResponse) {}
+    rpc SetKV(SetKVRequest) returns (SetKVResponse) {}
 }
