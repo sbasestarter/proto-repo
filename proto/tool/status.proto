@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package tool.api;
+
+option go_package = "<domain>/<namespace>/protorepo-tool-go.git;toolpb";
+
+enum ToolStatus {
+  US_UNKNOWN = 0;
+  US_SUCCESS = 1;
+  US_FAILED = 2;
+}
+
+message ServerStatus {
+  ToolStatus status = 1;
+  string msg = 2;
+}

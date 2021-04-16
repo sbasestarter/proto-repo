@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package tool.api;
+
+option go_package = "<domain>/<namespace>/protorepo-tool-go.git;toolpb";
+
+import "tool/status.proto";
+
+message ColorRGBA {
+  uint32 r = 1;
+  uint32 g = 2;
+  uint32 b = 3;
+  uint32 a = 4;
+}
+message GeneratePixelAvatarRequest {
+  uint32 size = 1;
+  ColorRGBA back = 2;
+  ColorRGBA fore = 3;
+}
+
+message GeneratePixelAvatarResponse {
+  ServerStatus status = 1;
+  bytes data = 2;
+}
+
+service UserService {
+  rpc GeneratePixelAvatar(GeneratePixelAvatarRequest) returns (GeneratePixelAvatarResponse) {}
+}
