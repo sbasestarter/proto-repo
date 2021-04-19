@@ -335,7 +335,8 @@ proto.tool.api.GeneratePixelAvatarRequest.toObject = function(includeInstance, m
   var f, obj = {
     size: jspb.Message.getFieldWithDefault(msg, 1, 0),
     back: (f = msg.getBack()) && proto.tool.api.ColorRGBA.toObject(includeInstance, f),
-    fore: (f = msg.getFore()) && proto.tool.api.ColorRGBA.toObject(includeInstance, f)
+    fore: (f = msg.getFore()) && proto.tool.api.ColorRGBA.toObject(includeInstance, f),
+    text: jspb.Message.getFieldWithDefault(msg, 4, "")
   };
 
   if (includeInstance) {
@@ -385,6 +386,10 @@ proto.tool.api.GeneratePixelAvatarRequest.deserializeBinaryFromReader = function
       var value = new proto.tool.api.ColorRGBA;
       reader.readMessage(value,proto.tool.api.ColorRGBA.deserializeBinaryFromReader);
       msg.setFore(value);
+      break;
+    case 4:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setText(value);
       break;
     default:
       reader.skipField();
@@ -436,6 +441,13 @@ proto.tool.api.GeneratePixelAvatarRequest.serializeBinaryToWriter = function(mes
       3,
       f,
       proto.tool.api.ColorRGBA.serializeBinaryToWriter
+    );
+  }
+  f = message.getText();
+  if (f.length > 0) {
+    writer.writeString(
+      4,
+      f
     );
   }
 };
@@ -530,6 +542,24 @@ proto.tool.api.GeneratePixelAvatarRequest.prototype.clearFore = function() {
  */
 proto.tool.api.GeneratePixelAvatarRequest.prototype.hasFore = function() {
   return jspb.Message.getField(this, 3) != null;
+};
+
+
+/**
+ * optional string text = 4;
+ * @return {string}
+ */
+proto.tool.api.GeneratePixelAvatarRequest.prototype.getText = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 4, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.tool.api.GeneratePixelAvatarRequest} returns this
+ */
+proto.tool.api.GeneratePixelAvatarRequest.prototype.setText = function(value) {
+  return jspb.Message.setProto3StringField(this, 4, value);
 };
 
 
