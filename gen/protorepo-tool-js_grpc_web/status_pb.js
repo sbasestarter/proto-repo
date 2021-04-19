@@ -200,9 +200,9 @@ proto.tool.api.ServerStatus.prototype.setMsg = function(value) {
  * @enum {number}
  */
 proto.tool.api.ToolStatus = {
-  US_UNKNOWN: 0,
-  US_SUCCESS: 1,
-  US_FAILED: 2
+  TS_UNKNOWN: 0,
+  TS_SUCCESS: 1,
+  TS_FAILED: 2
 };
 
 goog.object.extend(exports, proto.tool.api);

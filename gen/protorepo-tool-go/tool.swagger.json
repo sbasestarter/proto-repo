@@ -59,11 +59,11 @@
     "apiToolStatus": {
       "type": "string",
       "enum": [
-        "US_UNKNOWN",
-        "US_SUCCESS",
-        "US_FAILED"
+        "TS_UNKNOWN",
+        "TS_SUCCESS",
+        "TS_FAILED"
       ],
-      "default": "US_UNKNOWN"
+      "default": "TS_UNKNOWN"
     },
     "protobufAny": {
       "type": "object",
