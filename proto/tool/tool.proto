@@ -16,6 +16,7 @@ message GeneratePixelAvatarRequest {
   uint32 size = 1;
   ColorRGBA back = 2;
   ColorRGBA fore = 3;
+  string text = 4;
 }
 
 message GeneratePixelAvatarResponse {
