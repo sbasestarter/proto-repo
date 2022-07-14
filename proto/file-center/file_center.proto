@@ -4,7 +4,7 @@ package filecenter.api;
 
 import "share/share.proto";
 
-option go_package = "<domain>/<namespace>/<proto-target>-go.git;filecenterpb";
+option go_package = "<domain>/<namespace>/<proto-target>-go;filecenterpb";
 
 message UpdateFileRequest {
   string file_name = 1;

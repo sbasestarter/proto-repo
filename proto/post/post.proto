@@ -4,7 +4,7 @@ package post.api;
 
 import "share/share.proto";
 
-option go_package = "<domain>/<namespace>/<proto-target>-go.git;postpb";
+option go_package = "<domain>/<namespace>/<proto-target>-go;postpb";
 
 message SendTemplateRequest {
   string protocol_type = 1;

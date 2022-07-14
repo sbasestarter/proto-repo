@@ -4,7 +4,7 @@ package postsbs.api;
 
 import "share/share.proto";
 
-option go_package = "<domain>/<namespace>/<proto-target>-go.git;postsbspb";
+option go_package = "<domain>/<namespace>/<proto-target>-go;postsbspb";
 
 enum PostProtocolType {
   POST_PROTOCOL_TYPE_UNSPECIFIED = 0;

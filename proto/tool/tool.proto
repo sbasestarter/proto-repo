@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package tool.api;
 
-option go_package = "<domain>/<namespace>/<proto-target>-go.git;toolpb";
+option go_package = "<domain>/<namespace>/<proto-target>-go;toolpb";
 
 message ColorRGBA {
   uint32 r = 1;
