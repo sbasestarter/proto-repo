@@ -1,10 +1,10 @@
 syntax = "proto3";
 
-package filecenter.api;
+package file.api;
 
 import "share/share.proto";
 
-option go_package = "<domain>/<namespace>/<proto-target>-go;filecenterpb";
+option go_package = "<domain>/<namespace>/<proto-target>-go;filepb";
 
 message UpdateFileRequest {
   string file_name = 1;
