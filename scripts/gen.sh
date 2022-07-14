@@ -6,10 +6,9 @@ GIT_NAMESPACE=gen
 IMAGE=lalapapa/protoc-all:latest
 REPOPATH=$PWD/gen
 
-
-function buildDir {
+function preBuildDir {
   currentDir="$1"
-  echo "Building directory $currentDir"
+  echo "PreBuilding directory $currentDir"
 
   pushd $currentDir
 
@@ -25,6 +24,15 @@ function buildDir {
     fi
     sed -i "s#<proto-target>#${prototarget}#g" $file
   done
+
+  popd
+}
+
+function buildDir {
+  currentDir="$1"
+  echo "Building directory $currentDir"
+
+  pushd $currentDir
 
   buildProtoForTypes $currentDir
 
@@ -88,6 +96,12 @@ echo "pwd $(pwd)"
 
 function buildAll {
   echo "Buidling service's protocol buffers"
+
+  for d in */; do
+    echo "start pre building $d ..."
+    preBuildDir $d
+    echo "finish pre building $d ..."
+  done
 
   for d in */; do
     echo "start building $d ..."
