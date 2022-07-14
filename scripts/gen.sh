@@ -12,7 +12,7 @@ function preBuildDir {
 
   pushd $currentDir
 
-  prototarget="protorepo-$target"
+  prototarget="protorepo-${1%/}"
 
   for file in *.proto
   do
