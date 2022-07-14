@@ -55,9 +55,11 @@ function buildProtoForTypes {
 
       mkdir -p "${repotarget}"
 
-      OPTS="-l $lang -i /inc"
+
+      OPTS="-l $lang -i /inc --with-docs"
 
       [[ "$lang" =~ ^go ]] && OPTS="$OPTS --with-gateway"
+      [[ "$lang" =~ ^web ]] && OPTS="$OPTS --grpc-web-out import_style=commonjs"
 
       image_name=$IMAGE
       docker run --rm -u $(id -u) -v $PWD:/defs -v $(dirname $PWD):/inc $image_name -d . $OPTS

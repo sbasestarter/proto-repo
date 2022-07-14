@@ -29,7 +29,7 @@ message SetKVRequest {
 }
 
 
-service FileCenter {
+service FileService {
   rpc UpdateFile(UpdateFileRequest) returns (UpdateFileResponse) {}
 
   rpc GetKV(GetKVRequest) returns (GetKVResponse) {}
