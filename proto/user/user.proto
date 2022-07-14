@@ -2,277 +2,287 @@ syntax = "proto3";
 
 package user.api;
 
-option go_package = "<domain>/<namespace>/protorepo-user-go.git;userpb";
-
 import "user/status.proto";
 
-//
-// UserService
-//
+option go_package = "<domain>/<namespace>/<proto-target>-go;userpb";
 
 enum VerificationEquipment {
-    VEAuto = 0;
-    VEPhone = 1;
-    VEMail = 2;
-    VEWxMinA = 3;
-    VECustom = 100;
+  VERIFICATION_EQUIPMENT_UNSPECIFIED = 0;
+  VERIFICATION_EQUIPMENT_PHONE = 1;
+  VERIFICATION_EQUIPMENT_MAIL = 2;
+  VERIFICATION_EQUIPMENT_WX_MINA = 3;
+  VERIFICATION_EQUIPMENT_CUSTOM = 100;
 }
 
 enum GoogleAuthGlobalFlag {
-    GoogleAuthNone = 0;
-    GoogleAuthFlagEnabled = 1;
-    GoogleAuthFlagEnabledForce = 2;
+  GOOGLE_AUTH_GLOBAL_FLAG_UNSPECIFIED = 0;
+  GOOGLE_AUTH_GLOBAL_FLAG_ENABLED = 1;
+  GOOGLE_AUTH_GLOBAL_FLAG_ENABLED_FORCE = 2;
 }
 
 enum TriggerAuthPurpose {
-    TriggerAuthPurposeNone = 0;
-    TriggerAuthPurposeRegister = 1;
-    TriggerAuthPurposeLogin = 2;
-    TriggerAuthPurposeResetPassword = 3;
+  TRIGGER_AUTH_PURPOSE_UNSPECIFIED = 0;
+  TRIGGER_AUTH_PURPOSE_REGISTER = 1;
+  TRIGGER_AUTH_PURPOSE_LOGIN = 2;
+  TRIGGER_AUTH_PURPOSE_RESET_PASSWORD = 3;
 }
 
 message UserId {
-    string user_name = 1;
-    string user_ve = 2;
+  string user_name = 1;
+  string user_ve = 2;
 }
 
 message TriggerAuthRequest {
-    UserId user = 1;
-    TriggerAuthPurpose purpose = 2;
+  UserId user = 1;
+  TriggerAuthPurpose purpose = 2;
 }
 
 message TriggerAuthResponse {
-    ServerStatus status = 1;
+  ServerStatus status = 1;
 }
 
 message RegisterRequest {
-    UserId user = 1;
-    string code_for_ve = 2;
-    string new_password = 3;
-    bool attach_sso_token = 4;
-    string sso_jump_url = 5;
+  UserId user = 1;
+  string code_for_ve = 2;
+  string new_password = 3;
+  bool attach_sso_token = 4;
+  string sso_jump_url = 5;
 }
 
 message LoginRequest {
-    UserId user = 1;
-    string password = 2;
-    string code_for_ve = 3;
-    string code_for_ga = 4;
-    bool attach_sso_token = 5;
-    string sso_jump_url = 6;
+  UserId user = 1;
+  string password = 2;
+  string code_for_ve = 3;
+  string code_for_ga = 4;
+  bool attach_sso_token = 5;
+  string sso_jump_url = 6;
 }
 
 message UserInfo {
-    string id = 1;
-    string nick_name = 2;
-    string avatar = 3;
-    bool enabled_ga = 5;
-    GoogleAuthGlobalFlag flag_ga = 6;
+  string id = 1;
+  string nick_name = 2;
+  string avatar = 3;
+  bool enabled_ga = 5;
+  GoogleAuthGlobalFlag flag_ga = 6;
 }
 
 message SignResponse {
-    ServerStatus status = 1;
-    string token = 2;
-    UserInfo info = 3;
-    string sso_token = 4;
+  ServerStatus status = 1;
+  string token = 2;
+  UserInfo info = 3;
+  string sso_token = 4;
 }
 
 message SSOLoginRequest {
-    string sso_token = 1;
+  string sso_token = 1;
 }
 
 message LogoutRequest {
-    string token = 1;
+  string token = 1;
 }
 
 message LogoutResponse {
-    ServerStatus status = 1;
+  ServerStatus status = 1;
 }
 
 message GoogleAuthGetSetupInfoRequest {
-    string token = 1;
+  string token = 1;
 }
 
 message GoogleAuthGetSetupInfoResponse {
-    ServerStatus status = 1;
-    string secret_key = 2;
+  ServerStatus status = 1;
+  string secret_key = 2;
 }
 
 message GoogleAuthVerifyRequest {
-    string token = 1;
-    string code = 2;
+  string token = 1;
+  string code = 2;
 }
 
 message GoogleAuthVerifyResponse {
-    ServerStatus status = 1;
-    string token = 2;
+  ServerStatus status = 1;
+  string token = 2;
 }
 
 message GoogleAuthSetRequest {
-    string token = 1;
-    string code = 2;
-    string token_ga_old = 3;
+  string token = 1;
+  string code = 2;
+  string token_ga_old = 3;
 }
 
 message GoogleAuthSetResponse {
-    ServerStatus status = 1;
+  ServerStatus status = 1;
 }
 
 message ProfileRequest {
-    string token = 1;
-    bool attach_sso_token = 2; // SSO 登录，如果有token，就会调用Profile尝试获取sso token
-    string sso_jump_url = 5;
+  string token = 1;
+  bool attach_sso_token = 2; // SSO 登录，如果有token，就会调用Profile尝试获取sso token
+  string sso_jump_url = 5;
 }
 
 message ProfileResponse {
-    ServerStatus status = 1;
-    UserInfo info = 2;
-    string sso_token = 3;
+  ServerStatus status = 1;
+  UserInfo info = 2;
+  string sso_token = 3;
 }
 
-
 message ResetPasswordRequest {
-    UserId user = 1;
-    string new_password = 2;
-    string code_for_ve = 3;
-    string code_for_ga = 4;
+  UserId user = 1;
+  string new_password = 2;
+  string code_for_ve = 3;
+  string code_for_ga = 4;
 }
 
 message ChangePasswordRequest {
-    string token = 1;
-    string csrf_token = 2;
-    string password = 3;
-    string new_password = 4;
+  string token = 1;
+  string csrf_token = 2;
+  string password = 3;
+  string new_password = 4;
 }
 
 message GetCsrfTokenRequest {
-    string token = 1;
+  string token = 1;
 }
 
 message GetCsrfTokenResponse {
-    ServerStatus status = 1;
-    string csrf_token = 2;
+  ServerStatus status = 1;
+  string csrf_token = 2;
 }
 
 message GetDetailInfoRequest {
-    string token = 1;
+  string token = 1;
 }
 
 message UserDetailInfo {
-    UserInfo base_info = 1;
-    int64 create_at = 2;
-    UserId user = 3;
-    string phone = 4;
-    string email = 5;
-    string wechat = 6;
+  UserInfo base_info = 1;
+  int64 create_at = 2;
+  UserId user = 3;
+  string phone = 4;
+  string email = 5;
+  string wechat = 6;
 }
 
 message GetDetailInfoResponse {
-    ServerStatus status = 1;
-    UserDetailInfo info = 2;
+  ServerStatus status = 1;
+  UserDetailInfo info = 2;
 }
 
 message UpdateDetailInfoRequest {
-    string token = 1;
-    string csrf_token = 2;
-    string avatar = 3;
-    string nick_name = 4;
-    string phone = 5;
-    string email = 6;
-    string we_chat = 7;
+  string token = 1;
+  string csrf_token = 2;
+  string avatar = 3;
+  string nick_name = 4;
+  string phone = 5;
+  string email = 6;
+  string we_chat = 7;
 }
 
 message UpdateDetailInfoResponse {
-    ServerStatus status = 1;
+  ServerStatus status = 1;
 }
 
 message GetUserListRequest {
-    string token = 1;
-    string csrf_token = 2;
-    int64 offset = 3;
-    int32 limit = 4;
-    string keyword = 5;
+  string token = 1;
+  string csrf_token = 2;
+  int64 offset = 3;
+  int32 limit = 4;
+  string keyword = 5;
 }
 
 message UserListItem {
-    UserId user = 1;
-    UserInfo info = 2;
-    string create_at = 3;
-    string last_login_at = 4;
-    int64 privileges = 5;
+  UserId user = 1;
+  UserInfo info = 2;
+  string create_at = 3;
+  string last_login_at = 4;
+  int64 privileges = 5;
 }
 
 message GetUserListResponse {
-    ServerStatus status = 1;
-    int64 cnt = 2;
-    repeated UserListItem users = 3;
+  ServerStatus status = 1;
+  int64 cnt = 2;
+  repeated UserListItem users = 3;
 }
 
 message ManagerUserResetPasswordRequest {
-    string new_password = 1;
+  string new_password = 1;
 }
 
 enum ManagerUserType {
-    MUTNone = 0;
-    MUTDelete = 1;
-    MUTSetAdminPrivilege = 2;
-    MUTUnsetAdminPrivilege = 3;
-    MUTSwitchAdminPrivilege = 4;
-    MUTResetPassword = 5;
+  MANAGER_USER_TYPE_UNSPECIFIED = 0;
+  MANAGER_USER_TYPE_DELETE = 1;
+  MANAGER_USER_TYPE_SET_ADMIN_PRIVILEGE = 2;
+  MANAGER_USER_TYPE_UNSET_ADMIN_PRIVILEGE = 3;
+  MANAGER_USER_TYPE_SWITCH_ADMIN_PRIVILEGE = 4;
+  MANAGER_USER_TYPE_RESET_PASSWORD = 5;
 }
 
 message ManagerUserRequest {
-    string token = 1;
-    string csrf_token = 2;
-    int64 uid = 3;
-    ManagerUserType type = 4;
-    oneof Payload {
-        ManagerUserResetPasswordRequest reset_password = 50;
-    }
+  string token = 1;
+  string csrf_token = 2;
+  int64 uid = 3;
+  ManagerUserType type = 4;
+  oneof Payload {
+    ManagerUserResetPasswordRequest reset_password = 50;
+  }
 }
 
 message ManagerUserResponse {
-    ServerStatus status = 1;
+  ServerStatus status = 1;
 }
 
 message AdminProfileRequest {
-    string token = 1;
+  string token = 1;
 }
 
 message AdminUserInfo {
-    int64 id = 1;
-    string nick_name = 2;
-    string avatar = 3;
-    bool enabled_ga = 5;
+  int64 id = 1;
+  string nick_name = 2;
+  string avatar = 3;
+  bool enabled_ga = 5;
 }
 
 message AdminProfileResponse {
-    ServerStatus status = 1;
-    AdminUserInfo info = 2;
+  ServerStatus status = 1;
+  AdminUserInfo info = 2;
 }
 
-
 service UserService {
-    rpc TriggerAuth(TriggerAuthRequest) returns (TriggerAuthResponse) {}
-    rpc Register(RegisterRequest) returns (SignResponse) {}
-    rpc Login(LoginRequest) returns (SignResponse) {}
-    rpc SSOLogin(SSOLoginRequest) returns (SignResponse) {}
-    rpc Logout(LogoutRequest) returns (LogoutResponse) {}
-    rpc GoogleAuthGetSetupInfo(GoogleAuthGetSetupInfoRequest) returns (GoogleAuthGetSetupInfoResponse) {}
-    rpc GoogleAuthVerify(GoogleAuthVerifyRequest) returns (GoogleAuthVerifyResponse) {}
-    rpc GoogleAuthSet(GoogleAuthSetRequest) returns (GoogleAuthSetResponse) {}
-    rpc Profile(ProfileRequest) returns (ProfileResponse) {}
-    rpc ResetPassword(ResetPasswordRequest) returns (SignResponse) {}
-    rpc ChangePassword(ChangePasswordRequest) returns (SignResponse) {}
-    rpc GetCsrfToken(GetCsrfTokenRequest) returns (GetCsrfTokenResponse) {}
-    rpc GetDetailInfo(GetDetailInfoRequest) returns (GetDetailInfoResponse) {}
-    rpc UpdateDetailInfo(UpdateDetailInfoRequest) returns (UpdateDetailInfoResponse) {}
+  // 请求发送验证码
+  rpc TriggerAuth(TriggerAuthRequest) returns (TriggerAuthResponse) {}
+  // 注册
+  rpc Register(RegisterRequest) returns (SignResponse) {}
+  // 登录
+  rpc Login(LoginRequest) returns (SignResponse) {}
+  // SSO登录
+  rpc SSOLogin(SSOLoginRequest) returns (SignResponse) {}
+  // 注销
+  rpc Logout(LogoutRequest) returns (LogoutResponse) {}
+  // 获取谷歌验证的信息
+  rpc GoogleAuthGetSetupInfo(GoogleAuthGetSetupInfoRequest) returns (GoogleAuthGetSetupInfoResponse) {}
+  // 谷歌验证
+  rpc GoogleAuthVerify(GoogleAuthVerifyRequest) returns (GoogleAuthVerifyResponse) {}
+  // 开启谷歌验证
+  rpc GoogleAuthSet(GoogleAuthSetRequest) returns (GoogleAuthSetResponse) {}
+  // 获取登录用户信息
+  rpc Profile(ProfileRequest) returns (ProfileResponse) {}
+  // 重置密码
+  rpc ResetPassword(ResetPasswordRequest) returns (SignResponse) {}
+  // 修改密码
+  rpc ChangePassword(ChangePasswordRequest) returns (SignResponse) {}
+  // 获取CSRF凭证
+  rpc GetCsrfToken(GetCsrfTokenRequest) returns (GetCsrfTokenResponse) {}
+  // 获取当前用户详细信息
+  rpc GetDetailInfo(GetDetailInfoRequest) returns (GetDetailInfoResponse) {}
+  // 更新当前用户详细信息
+  rpc UpdateDetailInfo(UpdateDetailInfoRequest) returns (UpdateDetailInfoResponse) {}
 
-    //
-    rpc GetUserList(GetUserListRequest) returns (GetUserListResponse) {}
-    rpc ManagerUser(ManagerUserRequest) returns (ManagerUserResponse) {}
-    //
-    // admin
-    //
-    rpc AdminProfile(AdminProfileRequest) returns (AdminProfileResponse) {}
+  // 获取用户列表
+  rpc GetUserList(GetUserListRequest) returns (GetUserListResponse) {}
+  // 管理用户
+  rpc ManagerUser(ManagerUserRequest) returns (ManagerUserResponse) {}
+
+  //
+  // admin
+  //
+  rpc AdminProfile(AdminProfileRequest) returns (AdminProfileResponse) {}
 }

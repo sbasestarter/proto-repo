@@ -5,9 +5,9 @@ package filecenter.api;
 option go_package = "<domain>/<namespace>/protorepo-file-center-go.git;filecenterpb";
 
 enum FileCenterStatus {
-  FCS_UNKNOWN = 0;
-  FCS_SUCCESS = 1;
-  FCS_FAILED = 2;
+  FILE_CENTER_STATUS_FCS_UNKNOWN_UNSPECIFIED = 0;
+  FILE_CENTER_STATUS_FCS_SUCCESS = 1;
+  FILE_CENTER_STATUS_FCS_FAILED = 2;
 }
 
 message ServerStatus {

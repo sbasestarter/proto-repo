@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package filecenter.api;
+
+import "file-center/status.proto";
+import "share/share.proto";
+
+option go_package = "<domain>/<namespace>/<proto-target>-go.git;filecenterpb";
+
+message UpdateFileRequest {
+  string file_name = 1;
+  bytes  content = 2;
+}
+
+message UpdateFileResponse {
+  string file_url = 1;
+}
+
+message GetKVRequest {
+  string key = 1;
+}
+
+message GetKVResponse {
+  string value = 1;
+}
+
+message SetKVRequest {
+  string key = 1;
+  string value = 2;
+}
+
+
+service FileCenter {
+  rpc UpdateFile(UpdateFileRequest) returns (UpdateFileResponse) {}
+
+  rpc GetKV(GetKVRequest) returns (GetKVResponse) {}
+  rpc SetKV(SetKVRequest) returns (share.api.Empty) {}
+}

@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package postsbs.api;
+
+import "share/share.proto";
+
+option go_package = "<domain>/<namespace>/<proto-target>-go.git;postsbspb";
+
+enum PostProtocolType {
+  POST_PROTOCOL_TYPE_UNSPECIFIED = 0;
+  POST_PROTOCOL_TYPE_MAIL = 1;
+  POST_PROTOCOL_TYPE_SMS = 2;
+}
+
+enum PostPurposeType {
+  POST_PURPOSE_TYPE_UNSPECIFIED = 0;
+  POST_PURPOSE_TYPE_REGISTER = 1;
+  POST_PURPOSE_TYPE_LOGIN = 2;
+  POST_PURPOSE_TYPE_RESET_PASSWORD = 3;
+}
+
+message PostCodeRequest {
+  PostProtocolType protocol_type = 1;
+  PostPurposeType purpose_type = 2;
+  string to = 3;
+  string code = 4;
+  int64 expired_timestamp = 5;
+}
+
+service PostSBSService {
+  rpc PostCode(PostCodeRequest) returns (share.api.Empty) {}
+}

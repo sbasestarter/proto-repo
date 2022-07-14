@@ -1,7 +1,7 @@
 #!/bin/bash
 
-GIT_DOMAIN=https://github.com/sbasestarter/proto-repo
-GIT_NAMESPACE=gen/protorepo-user-go
+GIT_DOMAIN=github.com/sbasestarter/proto-repo
+GIT_NAMESPACE=gen
 
 IMAGE=lalapapa/protoc-all:latest
 REPOPATH=$PWD/gen
@@ -13,6 +13,8 @@ function buildDir {
 
   pushd $currentDir
 
+  prototarget="protorepo-$target"
+
   for file in *.proto
   do
     if [ ! -z ${GIT_DOMAIN} ];then
@@ -21,6 +23,7 @@ function buildDir {
     if [ ! -z ${GIT_NAMESPACE} ];then
       sed -i "s#<namespace>#${GIT_NAMESPACE}#g" $file
     fi
+    sed -i "s#<proto-target>#${prototarget}#g" $file
   done
 
   buildProtoForTypes $currentDir
@@ -39,21 +42,17 @@ function buildProtoForTypes {
 
       reponame="protorepo-$target-$lang"
 
-      rm -rf $REPOPATH/$reponame
+      repotarget=$REPOPATH/$reponame
+      rm -rf "${repotarget}"
 
-      mkdir -p "$REPOPATH/$reponame"
-      echo "@@@@@@@@ reponame is $REPOPATH/$reponame"
+      mkdir -p "${repotarget}"
 
-      echo "- $OPTS"
       OPTS="-l $lang -i /inc"
-      echo "-- $OPTS"
+
       [[ "$lang" =~ ^go ]] && OPTS="$OPTS --with-gateway"
-      echo "--- $OPTS"
-      echo "-------------------------"
 
       image_name=$IMAGE
-      echo "############### docker run --rm -u $(id -u) -v $PWD:/defs -v $(dirname $PWD):/inc $image_name -d /inc/$target $OPTS"
-      docker run --rm -u $(id -u) -v $PWD:/defs -v $(dirname $PWD):/inc $image_name -d /inc/$target $OPTS
+      docker run --rm -u $(id -u) -v $PWD:/defs -v $(dirname $PWD):/inc $image_name -d . $OPTS
 
       # Clone the repository down and set the branch to the automated one
 
@@ -61,14 +60,14 @@ function buildProtoForTypes {
       # Copy the generated files out of the pb-* path into the repository
       # that we care about
       # cp -R gen/pb*$lang/* $REPOPATH/$reponame/
-      find gen/pb*$lang/ -type f -exec cp -a {} $REPOPATH/$reponame/ \;
+      find gen/pb*$lang/ -type f -exec cp -a {} ${repotarget}/ \;
 
-      pushd "$REPOPATH/$reponame"
+      pushd "${repotarget}"
       for f in *.js; do [ -f "$f" ] || break; if [[ `awk 'NR==1{print}' "$f"` == "/* eslint-disable */"  ]]; then echo "y"; else `echo '/* eslint-disable */' | cat - "$f" > temp && mv -f temp "$f"`; fi; done
       popd
 
       if [ "$lang" = "js" ]; then
-        cat > $REPOPATH/$reponame/package.json <<_EOF
+        cat > ${repotarget}/package.json <<_EOF
 { "name": "$target", "version": "$GITSHA" }
 _EOF
       fi

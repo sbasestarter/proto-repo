@@ -2,9 +2,7 @@ syntax = "proto3";
 
 package tool.api;
 
-option go_package = "<domain>/<namespace>/protorepo-tool-go.git;toolpb";
-
-import "tool/status.proto";
+option go_package = "<domain>/<namespace>/<proto-target>-go.git;toolpb";
 
 message ColorRGBA {
   uint32 r = 1;
@@ -12,6 +10,7 @@ message ColorRGBA {
   uint32 b = 3;
   uint32 a = 4;
 }
+
 message GeneratePixelAvatarRequest {
   uint32 size = 1;
   ColorRGBA back = 2;
@@ -20,8 +19,7 @@ message GeneratePixelAvatarRequest {
 }
 
 message GeneratePixelAvatarResponse {
-  ServerStatus status = 1;
-  bytes data = 2;
+  bytes data = 1;
 }
 
 service UserService {
