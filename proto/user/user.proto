@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package user.api;
 
-import "user/status.proto";
-
 option go_package = "<domain>/<namespace>/<proto-target>-go;userpb";
 
 enum UserStatus {
