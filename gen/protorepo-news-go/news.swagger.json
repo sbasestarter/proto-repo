@@ -26,6 +26,18 @@
         }
       }
     },
+    "apiEmpty": {
+      "type": "object"
+    },
+    "apiGetHomePageJSONDataResponse": {
+      "type": "object",
+      "properties": {
+        "json": {
+          "type": "string",
+          "format": "byte"
+        }
+      }
+    },
     "apiNewsInfo": {
       "type": "object",
       "properties": {

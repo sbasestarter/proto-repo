@@ -16,6 +16,8 @@
 const grpc = {};
 grpc.web = require('grpc-web');
 
+
+var share_share_pb = require('./share/share_pb.js')
 const proto = {};
 proto.news = {};
 proto.news.api = require('./news_pb.js');
@@ -130,6 +132,128 @@ proto.news.api.NewsServicePromiseClient.prototype.getNews =
       request,
       metadata || {},
       methodDescriptor_NewsService_GetNews);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.news.api.GetHomePageJSONDataRequest,
+ *   !proto.news.api.GetHomePageJSONDataResponse>}
+ */
+const methodDescriptor_NewsService_GetHomePageJSONData = new grpc.web.MethodDescriptor(
+  '/news.api.NewsService/GetHomePageJSONData',
+  grpc.web.MethodType.UNARY,
+  proto.news.api.GetHomePageJSONDataRequest,
+  proto.news.api.GetHomePageJSONDataResponse,
+  /**
+   * @param {!proto.news.api.GetHomePageJSONDataRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.news.api.GetHomePageJSONDataResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.news.api.GetHomePageJSONDataRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.news.api.GetHomePageJSONDataResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.news.api.GetHomePageJSONDataResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.news.api.NewsServiceClient.prototype.getHomePageJSONData =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/news.api.NewsService/GetHomePageJSONData',
+      request,
+      metadata || {},
+      methodDescriptor_NewsService_GetHomePageJSONData,
+      callback);
+};
+
+
+/**
+ * @param {!proto.news.api.GetHomePageJSONDataRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.news.api.GetHomePageJSONDataResponse>}
+ *     Promise that resolves to the response
+ */
+proto.news.api.NewsServicePromiseClient.prototype.getHomePageJSONData =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/news.api.NewsService/GetHomePageJSONData',
+      request,
+      metadata || {},
+      methodDescriptor_NewsService_GetHomePageJSONData);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.news.api.SetHomePageJSONDataRequest,
+ *   !proto.share.api.Empty>}
+ */
+const methodDescriptor_NewsService_SetHomePageJSONData = new grpc.web.MethodDescriptor(
+  '/news.api.NewsService/SetHomePageJSONData',
+  grpc.web.MethodType.UNARY,
+  proto.news.api.SetHomePageJSONDataRequest,
+  share_share_pb.Empty,
+  /**
+   * @param {!proto.news.api.SetHomePageJSONDataRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  share_share_pb.Empty.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.news.api.SetHomePageJSONDataRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.share.api.Empty)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.share.api.Empty>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.news.api.NewsServiceClient.prototype.setHomePageJSONData =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/news.api.NewsService/SetHomePageJSONData',
+      request,
+      metadata || {},
+      methodDescriptor_NewsService_SetHomePageJSONData,
+      callback);
+};
+
+
+/**
+ * @param {!proto.news.api.SetHomePageJSONDataRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.share.api.Empty>}
+ *     Promise that resolves to the response
+ */
+proto.news.api.NewsServicePromiseClient.prototype.setHomePageJSONData =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/news.api.NewsService/SetHomePageJSONData',
+      request,
+      metadata || {},
+      methodDescriptor_NewsService_SetHomePageJSONData);
 };
 
 

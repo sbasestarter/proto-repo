@@ -183,6 +183,14 @@
                 </li>
               
                 <li>
+                  <a href="#news.api.GetHomePageJSONDataRequest"><span class="badge">M</span>GetHomePageJSONDataRequest</a>
+                </li>
+              
+                <li>
+                  <a href="#news.api.GetHomePageJSONDataResponse"><span class="badge">M</span>GetHomePageJSONDataResponse</a>
+                </li>
+              
+                <li>
                   <a href="#news.api.GetNewsRequest"><span class="badge">M</span>GetNewsRequest</a>
                 </li>
               
@@ -192,6 +200,10 @@
               
                 <li>
                   <a href="#news.api.NewsInfo"><span class="badge">M</span>NewsInfo</a>
+                </li>
+              
+                <li>
+                  <a href="#news.api.SetHomePageJSONDataRequest"><span class="badge">M</span>SetHomePageJSONDataRequest</a>
                 </li>
               
               
@@ -243,6 +255,61 @@
                 <tr>
                   <td>avatar</td>
                   <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="news.api.GetHomePageJSONDataRequest">GetHomePageJSONDataRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>design</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
+        <h3 id="news.api.GetHomePageJSONDataResponse">GetHomePageJSONDataResponse</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>json</td>
+                  <td><a href="#bytes">bytes</a></td>
                   <td></td>
                   <td><p> </p></td>
                 </tr>
@@ -368,6 +435,44 @@
 
         
       
+        <h3 id="news.api.SetHomePageJSONDataRequest">SetHomePageJSONDataRequest</h3>
+        <p></p>
+
+        
+          <table class="field-table">
+            <thead>
+              <tr><td>Field</td><td>Type</td><td>Label</td><td>Description</td></tr>
+            </thead>
+            <tbody>
+              
+                <tr>
+                  <td>id</td>
+                  <td><a href="#string">string</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>design</td>
+                  <td><a href="#bool">bool</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+                <tr>
+                  <td>json</td>
+                  <td><a href="#bytes">bytes</a></td>
+                  <td></td>
+                  <td><p> </p></td>
+                </tr>
+              
+            </tbody>
+          </table>
+
+          
+
+        
+      
 
       
 
@@ -386,6 +491,20 @@
                 <td>GetNews</td>
                 <td><a href="#news.api.GetNewsRequest">GetNewsRequest</a></td>
                 <td><a href="#news.api.NewsInfo">NewsInfo</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>GetHomePageJSONData</td>
+                <td><a href="#news.api.GetHomePageJSONDataRequest">GetHomePageJSONDataRequest</a></td>
+                <td><a href="#news.api.GetHomePageJSONDataResponse">GetHomePageJSONDataResponse</a></td>
+                <td><p></p></td>
+              </tr>
+            
+              <tr>
+                <td>SetHomePageJSONData</td>
+                <td><a href="#news.api.SetHomePageJSONDataRequest">SetHomePageJSONDataRequest</a></td>
+                <td><a href="#share.api.Empty">.share.api.Empty</a></td>
                 <td><p></p></td>
               </tr>
             
