@@ -2,8 +2,6 @@ syntax = "proto3";
 
 package news.api;
 
-import "share/share.proto";
-
 option go_package = "<domain>/<namespace>/<proto-target>-go;newspb";
 
 message Author {
