@@ -1198,7 +1198,7 @@ proto.news.api.GetHomePageJSONDataResponse.prototype.toObject = function(opt_inc
  */
 proto.news.api.GetHomePageJSONDataResponse.toObject = function(includeInstance, msg) {
   var f, obj = {
-    json: msg.getJson_asB64()
+    jsonData: jspb.Message.getFieldWithDefault(msg, 1, "")
   };
 
   if (includeInstance) {
@@ -1236,8 +1236,8 @@ proto.news.api.GetHomePageJSONDataResponse.deserializeBinaryFromReader = functio
     var field = reader.getFieldNumber();
     switch (field) {
     case 1:
-      var value = /** @type {!Uint8Array} */ (reader.readBytes());
-      msg.setJson(value);
+      var value = /** @type {string} */ (reader.readString());
+      msg.setJsonData(value);
       break;
     default:
       reader.skipField();
@@ -1268,9 +1268,9 @@ proto.news.api.GetHomePageJSONDataResponse.prototype.serializeBinary = function(
  */
 proto.news.api.GetHomePageJSONDataResponse.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
-  f = message.getJson_asU8();
+  f = message.getJsonData();
   if (f.length > 0) {
-    writer.writeBytes(
+    writer.writeString(
       1,
       f
     );
@@ -1279,44 +1279,20 @@ proto.news.api.GetHomePageJSONDataResponse.serializeBinaryToWriter = function(me
 
 
 /**
- * optional bytes json = 1;
- * @return {!(string|Uint8Array)}
- */
-proto.news.api.GetHomePageJSONDataResponse.prototype.getJson = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
-};
-
-
-/**
- * optional bytes json = 1;
- * This is a type-conversion wrapper around `getJson()`
+ * optional string json_data = 1;
  * @return {string}
  */
-proto.news.api.GetHomePageJSONDataResponse.prototype.getJson_asB64 = function() {
-  return /** @type {string} */ (jspb.Message.bytesAsB64(
-      this.getJson()));
+proto.news.api.GetHomePageJSONDataResponse.prototype.getJsonData = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
 };
 
 
 /**
- * optional bytes json = 1;
- * Note that Uint8Array is not supported on all browsers.
- * @see http://caniuse.com/Uint8Array
- * This is a type-conversion wrapper around `getJson()`
- * @return {!Uint8Array}
- */
-proto.news.api.GetHomePageJSONDataResponse.prototype.getJson_asU8 = function() {
-  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
-      this.getJson()));
-};
-
-
-/**
- * @param {!(string|Uint8Array)} value
+ * @param {string} value
  * @return {!proto.news.api.GetHomePageJSONDataResponse} returns this
  */
-proto.news.api.GetHomePageJSONDataResponse.prototype.setJson = function(value) {
-  return jspb.Message.setProto3BytesField(this, 1, value);
+proto.news.api.GetHomePageJSONDataResponse.prototype.setJsonData = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -1354,7 +1330,7 @@ proto.news.api.SetHomePageJSONDataRequest.toObject = function(includeInstance, m
   var f, obj = {
     id: jspb.Message.getFieldWithDefault(msg, 1, ""),
     design: jspb.Message.getBooleanFieldWithDefault(msg, 2, false),
-    json: msg.getJson_asB64()
+    jsonData: jspb.Message.getFieldWithDefault(msg, 3, "")
   };
 
   if (includeInstance) {
@@ -1400,8 +1376,8 @@ proto.news.api.SetHomePageJSONDataRequest.deserializeBinaryFromReader = function
       msg.setDesign(value);
       break;
     case 3:
-      var value = /** @type {!Uint8Array} */ (reader.readBytes());
-      msg.setJson(value);
+      var value = /** @type {string} */ (reader.readString());
+      msg.setJsonData(value);
       break;
     default:
       reader.skipField();
@@ -1446,9 +1422,9 @@ proto.news.api.SetHomePageJSONDataRequest.serializeBinaryToWriter = function(mes
       f
     );
   }
-  f = message.getJson_asU8();
+  f = message.getJsonData();
   if (f.length > 0) {
-    writer.writeBytes(
+    writer.writeString(
       3,
       f
     );
@@ -1493,44 +1469,20 @@ proto.news.api.SetHomePageJSONDataRequest.prototype.setDesign = function(value) 
 
 
 /**
- * optional bytes json = 3;
- * @return {!(string|Uint8Array)}
- */
-proto.news.api.SetHomePageJSONDataRequest.prototype.getJson = function() {
-  return /** @type {!(string|Uint8Array)} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
-};
-
-
-/**
- * optional bytes json = 3;
- * This is a type-conversion wrapper around `getJson()`
+ * optional string json_data = 3;
  * @return {string}
  */
-proto.news.api.SetHomePageJSONDataRequest.prototype.getJson_asB64 = function() {
-  return /** @type {string} */ (jspb.Message.bytesAsB64(
-      this.getJson()));
+proto.news.api.SetHomePageJSONDataRequest.prototype.getJsonData = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 3, ""));
 };
 
 
 /**
- * optional bytes json = 3;
- * Note that Uint8Array is not supported on all browsers.
- * @see http://caniuse.com/Uint8Array
- * This is a type-conversion wrapper around `getJson()`
- * @return {!Uint8Array}
- */
-proto.news.api.SetHomePageJSONDataRequest.prototype.getJson_asU8 = function() {
-  return /** @type {!Uint8Array} */ (jspb.Message.bytesAsU8(
-      this.getJson()));
-};
-
-
-/**
- * @param {!(string|Uint8Array)} value
+ * @param {string} value
  * @return {!proto.news.api.SetHomePageJSONDataRequest} returns this
  */
-proto.news.api.SetHomePageJSONDataRequest.prototype.setJson = function(value) {
-  return jspb.Message.setProto3BytesField(this, 3, value);
+proto.news.api.SetHomePageJSONDataRequest.prototype.setJsonData = function(value) {
+  return jspb.Message.setProto3StringField(this, 3, value);
 };
 
 
