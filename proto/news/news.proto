@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package news.api;
 
+import "share/share.proto";
+
 option go_package = "<domain>/<namespace>/<proto-target>-go;newspb";
 
 message Author {
@@ -28,6 +30,23 @@ message GetNewsResponse {
   NewsInfo news = 1;
 }
 
+message GetHomePageJSONDataRequest {
+  string id = 1;
+  bool design = 2;
+}
+
+message GetHomePageJSONDataResponse {
+  bytes json = 1;
+}
+
+message SetHomePageJSONDataRequest {
+  string id = 1;
+  bool design = 2;
+  bytes json = 3;
+}
+
 service NewsService {
   rpc GetNews(GetNewsRequest) returns (NewsInfo) {}
+  rpc GetHomePageJSONData(GetHomePageJSONDataRequest) returns (GetHomePageJSONDataResponse) {}
+  rpc SetHomePageJSONData(SetHomePageJSONDataRequest) returns (share.api.Empty) {}
 }
