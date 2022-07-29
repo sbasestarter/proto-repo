@@ -36,13 +36,13 @@ message GetHomePageJSONDataRequest {
 }
 
 message GetHomePageJSONDataResponse {
-  bytes json = 1;
+  string json_data = 1;
 }
 
 message SetHomePageJSONDataRequest {
   string id = 1;
   bool design = 2;
-  bytes json = 3;
+  string json_data = 3;
 }
 
 service NewsService {
