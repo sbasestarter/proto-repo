@@ -17,12 +17,12 @@ function preBuildDir {
   for file in *.proto
   do
     if [ ! -z ${GIT_DOMAIN} ];then
-      sed -i "s#<domain>#${GIT_DOMAIN}#g" $file
+      sed -i "" "s#<domain>#${GIT_DOMAIN}#g" $file
     fi
     if [ ! -z ${GIT_NAMESPACE} ];then
-      sed -i "s#<namespace>#${GIT_NAMESPACE}#g" $file
+      sed -i "" "s#<namespace>#${GIT_NAMESPACE}#g" $file
     fi
-    sed -i "s#<proto-target>#${prototarget}#g" $file
+    sed -i "" "s#<proto-target>#${prototarget}#g" $file
   done
 
   popd
@@ -87,7 +87,9 @@ _EOF
 }
 
 
-SHELL_FOLDER=$(dirname $(readlink -f "$0"))
+# SHELL_FOLDER=$(dirname $(readlink -f "$0"))
+SHELL_FOLDER=$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)
+
 [ -d ${SHELL_FOLDER}/../.tmp/ ] && rm -rf ${SHELL_FOLDER}/../.tmp/
 mkdir -p ${SHELL_FOLDER}/../.tmp/
 cp -rf ${SHELL_FOLDER}/../proto ${SHELL_FOLDER}/../.tmp/
