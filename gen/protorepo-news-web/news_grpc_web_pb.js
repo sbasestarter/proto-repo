@@ -257,5 +257,127 @@ proto.news.api.NewsServicePromiseClient.prototype.setHomePageJSONData =
 };
 
 
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.news.api.UpdateNewsRequest,
+ *   !proto.news.api.UpdateNewsResponse>}
+ */
+const methodDescriptor_NewsService_UpdateNews = new grpc.web.MethodDescriptor(
+  '/news.api.NewsService/UpdateNews',
+  grpc.web.MethodType.UNARY,
+  proto.news.api.UpdateNewsRequest,
+  proto.news.api.UpdateNewsResponse,
+  /**
+   * @param {!proto.news.api.UpdateNewsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.news.api.UpdateNewsResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.news.api.UpdateNewsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.news.api.UpdateNewsResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.news.api.UpdateNewsResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.news.api.NewsServiceClient.prototype.updateNews =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/news.api.NewsService/UpdateNews',
+      request,
+      metadata || {},
+      methodDescriptor_NewsService_UpdateNews,
+      callback);
+};
+
+
+/**
+ * @param {!proto.news.api.UpdateNewsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.news.api.UpdateNewsResponse>}
+ *     Promise that resolves to the response
+ */
+proto.news.api.NewsServicePromiseClient.prototype.updateNews =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/news.api.NewsService/UpdateNews',
+      request,
+      metadata || {},
+      methodDescriptor_NewsService_UpdateNews);
+};
+
+
+/**
+ * @const
+ * @type {!grpc.web.MethodDescriptor<
+ *   !proto.news.api.ListNewsRequest,
+ *   !proto.news.api.ListNewsResponse>}
+ */
+const methodDescriptor_NewsService_ListNews = new grpc.web.MethodDescriptor(
+  '/news.api.NewsService/ListNews',
+  grpc.web.MethodType.UNARY,
+  proto.news.api.ListNewsRequest,
+  proto.news.api.ListNewsResponse,
+  /**
+   * @param {!proto.news.api.ListNewsRequest} request
+   * @return {!Uint8Array}
+   */
+  function(request) {
+    return request.serializeBinary();
+  },
+  proto.news.api.ListNewsResponse.deserializeBinary
+);
+
+
+/**
+ * @param {!proto.news.api.ListNewsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>} metadata User defined
+ *     call metadata
+ * @param {function(?grpc.web.RpcError, ?proto.news.api.ListNewsResponse)}
+ *     callback The callback function(error, response)
+ * @return {!grpc.web.ClientReadableStream<!proto.news.api.ListNewsResponse>|undefined}
+ *     The XHR Node Readable Stream
+ */
+proto.news.api.NewsServiceClient.prototype.listNews =
+    function(request, metadata, callback) {
+  return this.client_.rpcCall(this.hostname_ +
+      '/news.api.NewsService/ListNews',
+      request,
+      metadata || {},
+      methodDescriptor_NewsService_ListNews,
+      callback);
+};
+
+
+/**
+ * @param {!proto.news.api.ListNewsRequest} request The
+ *     request proto
+ * @param {?Object<string, string>=} metadata User defined
+ *     call metadata
+ * @return {!Promise<!proto.news.api.ListNewsResponse>}
+ *     Promise that resolves to the response
+ */
+proto.news.api.NewsServicePromiseClient.prototype.listNews =
+    function(request, metadata) {
+  return this.client_.unaryCall(this.hostname_ +
+      '/news.api.NewsService/ListNews',
+      request,
+      metadata || {},
+      methodDescriptor_NewsService_ListNews);
+};
+
+
 module.exports = proto.news.api;
 

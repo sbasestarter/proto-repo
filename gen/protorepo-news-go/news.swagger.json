@@ -37,6 +37,21 @@
         }
       }
     },
+    "apiListNewsResponse": {
+      "type": "object",
+      "properties": {
+        "newses": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/apiNewsInfo"
+          }
+        },
+        "count": {
+          "type": "integer",
+          "format": "int32"
+        }
+      }
+    },
     "apiNewsInfo": {
       "type": "object",
       "properties": {
@@ -56,14 +71,42 @@
           "type": "string",
           "format": "int64"
         },
-        "tags": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+        "category": {
+          "type": "string"
         },
         "author": {
           "$ref": "#/definitions/apiAuthor"
+        }
+      }
+    },
+    "apiNewsUpdateInfo": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "summary": {
+          "type": "string"
+        },
+        "image": {
+          "type": "string"
+        },
+        "news": {
+          "type": "string"
+        },
+        "category": {
+          "type": "string"
+        }
+      }
+    },
+    "apiUpdateNewsResponse": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
         }
       }
     },
