@@ -64,6 +64,8 @@ message UpdateNewsResponse {
 
 message ListNewsRequest {
   repeated string categories = 1;
+  int32 page = 2;
+  int32 page_size = 3;
 }
 
 message ListNewsResponse {

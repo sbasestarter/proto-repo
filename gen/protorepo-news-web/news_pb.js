@@ -2170,7 +2170,9 @@ proto.news.api.ListNewsRequest.prototype.toObject = function(opt_includeInstance
  */
 proto.news.api.ListNewsRequest.toObject = function(includeInstance, msg) {
   var f, obj = {
-    categoriesList: (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f
+    categoriesList: (f = jspb.Message.getRepeatedField(msg, 1)) == null ? undefined : f,
+    page: jspb.Message.getFieldWithDefault(msg, 2, 0),
+    pageSize: jspb.Message.getFieldWithDefault(msg, 3, 0)
   };
 
   if (includeInstance) {
@@ -2211,6 +2213,14 @@ proto.news.api.ListNewsRequest.deserializeBinaryFromReader = function(msg, reade
       var value = /** @type {string} */ (reader.readString());
       msg.addCategories(value);
       break;
+    case 2:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setPage(value);
+      break;
+    case 3:
+      var value = /** @type {number} */ (reader.readInt32());
+      msg.setPageSize(value);
+      break;
     default:
       reader.skipField();
       break;
@@ -2244,6 +2254,20 @@ proto.news.api.ListNewsRequest.serializeBinaryToWriter = function(message, write
   if (f.length > 0) {
     writer.writeRepeatedString(
       1,
+      f
+    );
+  }
+  f = message.getPage();
+  if (f !== 0) {
+    writer.writeInt32(
+      2,
+      f
+    );
+  }
+  f = message.getPageSize();
+  if (f !== 0) {
+    writer.writeInt32(
+      3,
       f
     );
   }
@@ -2284,6 +2308,42 @@ proto.news.api.ListNewsRequest.prototype.addCategories = function(value, opt_ind
  */
 proto.news.api.ListNewsRequest.prototype.clearCategoriesList = function() {
   return this.setCategoriesList([]);
+};
+
+
+/**
+ * optional int32 page = 2;
+ * @return {number}
+ */
+proto.news.api.ListNewsRequest.prototype.getPage = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 2, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.news.api.ListNewsRequest} returns this
+ */
+proto.news.api.ListNewsRequest.prototype.setPage = function(value) {
+  return jspb.Message.setProto3IntField(this, 2, value);
+};
+
+
+/**
+ * optional int32 page_size = 3;
+ * @return {number}
+ */
+proto.news.api.ListNewsRequest.prototype.getPageSize = function() {
+  return /** @type {number} */ (jspb.Message.getFieldWithDefault(this, 3, 0));
+};
+
+
+/**
+ * @param {number} value
+ * @return {!proto.news.api.ListNewsRequest} returns this
+ */
+proto.news.api.ListNewsRequest.prototype.setPageSize = function(value) {
+  return jspb.Message.setProto3IntField(this, 3, value);
 };
 
 
